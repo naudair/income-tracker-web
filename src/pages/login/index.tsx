@@ -18,7 +18,8 @@ export default function Login() {
         <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
           <input placeholder="Email" />
           <input placeholder="Password" />
-          <button>Log In</button>
+          {/* <button>Log In</button> */}
+          <button> Log In</button>
         </div>
         <div style={{ display: "flex", gap: "15px", padding: "30px" }}>
           <p>Dont have an account?</p>
