@@ -87,7 +87,7 @@ export default function Signup() {
 
   return (
     <div style={{ display: "flex", height: "100vh", color: "black" }}>
-      <div className="login-con">
+      <div className="login-con"  style={{ width: "50vw" }}>
         <GeldIcon />
         <div style={{ textAlign: "center", padding: "20px 0 45px 0" }}>
           <div style={{ fontSize: "30px", fontWeight: "500", padding: "15px" }}>

@@ -5,7 +5,6 @@ div {
 }
 
 .login-con {
-  width: 50vw;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -14,7 +13,7 @@ div {
 }
 
 input {
-  width: 348px;
+  width: 390px;
   height: 48px;
   border-radius: 8px;
   border: 1px solid #d1d5db;
@@ -48,4 +47,36 @@ button {
   text-align: center;
   padding-bottom: 10px;
   font-size: 14px;
+}
+
+.stepper {
+  width: 300px;
+  display: flex;
+  padding: 50px;
+}
+
+.currency {
+  width: 390px;
+  height: 65px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background-color: #f3f4f6;
+  padding: 10px;
+  font-size: 18px;
+}
+.currency-text {
+  color: #475569;
+  width: 384px;
+  font-size: 12px;
+  font-weight: 300;
+  height: 40px;
+}
+.final-text {
+  width: 384px;
+  text-align: center;
+  line-height: 24px;
+  color: #475569;
+  font-weight: 350;
+  margin: 0;
+  padding-bottom: 35px;
 }

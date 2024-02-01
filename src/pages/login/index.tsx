@@ -15,7 +15,7 @@ export default function Login() {
   const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     const email = event.target.value;
     if (!email.includes("@")) {
-      setEmailError("Please, enter your password.");
+      setEmailError("Please, enter your email.");
     } else {
       setEmailError("");
     }
@@ -23,7 +23,7 @@ export default function Login() {
   };
   const handleChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     const password = event.target.value;
-    if (password.length < 4) {
+    if (password.length < 8) {
       setPasswordError("Please, enter your password.");
     } else {
       setPasswordError("");
@@ -56,7 +56,7 @@ export default function Login() {
 
   return (
     <div style={{ display: "flex", height: "100vh", color: "black" }}>
-      <div className="login-con">
+      <div className="login-con" style={{ width: "50vw" }}>
         <GeldIcon />
         <div style={{ textAlign: "center", padding: "20px 0 45px 0" }}>
           <div style={{ fontSize: "30px", fontWeight: "500", padding: "15px" }}>
