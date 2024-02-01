@@ -65,7 +65,7 @@ export default function Signup() {
       })
       .then((res: unknown) => {
         console.log(res);
-        router.push("/signup1");
+        router.push("/signup-first");
       })
       .catch((err: unknown) => {
         console.log(err);
