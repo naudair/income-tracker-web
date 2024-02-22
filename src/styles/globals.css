@@ -80,3 +80,61 @@ button {
   margin: 0;
   padding-bottom: 35px;
 }
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 7vw 1vh;
+}
+.cart{
+  background-color: rgba(243, 244, 246, 1);
+  display: flex;
+  justify-content: space-between;
+}
+.cash {
+  width: 384.12px;
+  height: 219.66px;
+  border-radius: 18px;
+  background-color: #0166ff;
+  padding: 13px 30px;
+  box-sizing: border-box;
+  color: #ffffff;
+  font-size: 24px;
+}
+.incomeExpense {
+  width: 384px;
+  height: 216px;
+  top: 104px;
+  left: 528px;
+  border-radius: 18px;
+  background-color: #ffffff;
+}
+
+.cart-title {
+  width: 384px;
+  height: 56px;
+  padding: 17px 24px;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(226, 232, 240, 1);
+  gap: 8px;
+}
+.cart-amount{
+font-size: 36px;
+font-weight: 600;
+padding: 15px 24px;
+}
+.desc{
+font-size: 18px;
+font-weight: 400;
+padding: 0 24px;
+line-height: 0;
+color: rgba(100, 116, 139, 1);
+}
+.cart-status{
+  display: flex;
+  height: 60px;
+  align-items: end;
+  font-size: 20px;
+  padding-left: 24px;
+  gap: 8px;
+}
