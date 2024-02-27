@@ -1,22 +1,26 @@
-import { WhiteGeldIcon } from "./images/white-geldIcon";
-
-export default function BlueCart() {
+import bg from "../../public/card.png";
+export default function BlueCartComponent() {
   return (
-    <div className="cash">
-      <p>
-        <WhiteGeldIcon />
-      </p>
-      <p
-        style={{
-          color: "rgba(255, 255, 255, 0.5)",
-          fontSize: "16px",
-          paddingTop: "45px",
-          lineHeight: "0",
-        }}
-      >
-        Cash
-      </p>
-      10 000 000
+    <div
+      className="some-class"
+      style={{
+        backgroundImage: `url(${bg.src})`,
+        width: "384px",
+        height: "216px",
+        display: "flex",
+        alignItems: "end",
+        padding: "15px 35px ",
+        boxSizing: "border-box",
+        color: "#ffffff",
+        fontSize: "20px",
+      }}
+    >
+      <div style={{ lineHeight: "5px" }}>
+        <p style={{ fontSize: "15px", color: "rgba(255, 255, 255, 0.5" }}>
+          Cash
+        </p>
+        <p>1 000 000</p>
+      </div>
     </div>
   );
 }

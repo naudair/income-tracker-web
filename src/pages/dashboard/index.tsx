@@ -2,9 +2,10 @@ import { Icon } from "@/components/images/icon";
 import { upIcon } from "@/components/images/upIcon";
 import { downIcon } from "@/components/images/downIcon";
 import { Avatar } from "@mui/material";
-import BlueCart from "@/components/BlueCartComponent";
+import BlueCartComponent from "@/components/BlueCartComponent";
 import { CartDetail } from "@/components/IncomeExpenceComponent";
 import Chart from "@/components/chartComponent";
+import LastRecords from "@/components/lastRecordsComponent";
 
 export default function Dashboard() {
   return (
@@ -39,7 +40,7 @@ export default function Dashboard() {
         }}
       >
         <div className="cart">
-          <BlueCart />
+          <BlueCartComponent />
           <CartDetail
             title="Total Income"
             amount="1 200 000₮"
@@ -55,13 +56,16 @@ export default function Dashboard() {
             status="32% from last month"
           />
         </div>
-        <div style={{display:"flex", justifyContent:"space-between"}}>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div>
             <Chart />
           </div>
           <div>
             <Chart />
           </div>
+        </div>
+        <div>
+          <LastRecords />
         </div>
       </div>
     </div>
