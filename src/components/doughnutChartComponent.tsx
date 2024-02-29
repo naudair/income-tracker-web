@@ -28,13 +28,13 @@ const options = {
   },
 };
 
-function Chart() {
+function DoughnutChart() {
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "column",
-        width: "588px",
+        width: "41vw",
         height: "284px",
         borderRadius: "12px",
         backgroundColor: "#ffffff",
@@ -42,40 +42,30 @@ function Chart() {
     >
       <div
         style={{
+          height:"56px",
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
           padding: "0 20px",
+          borderBottom: "1px solid rgba(226, 232, 240, 1)",
         }}
       >
         <p>Expenses</p>
-        <div style={{display:"flex", gap:"20px"}}>
+        <div style={{ display: "flex", gap: "20px" }}>
           <p>Total: {sum}₮</p>
-          <p style={{color:"rgba(107, 114, 128, 1)"}}>Jun 1 - Nov 30</p>
+          <p style={{ color: "rgba(107, 114, 128, 1)" }}>Jun 1 - Nov 30</p>
         </div>
       </div>
-      <div
-        style={{
-          width: "100%",
-          backgroundColor: "#F5F5F5",
-          height: "2px",
-          margin: "0 0 15px 0",
-        }}
-      />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-        }}
-      >
+      <div style={{ display: "flex" }}>
         <div
           style={{
-            width: "228px",
+            width: "41vw",
+            height: "20vh",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            paddingLeft:"1vw"
           }}
         >
           <Doughnut
@@ -112,12 +102,12 @@ const Labels = () => {
             />
             <p style={{ marginRight: "10px" }}>{category}</p>
           </div>
-          <div style={{ width: "100px" }}>{expenses[index]}₮</div>
-          <div style={{ width: "100px" }}>{(expenses[index] * 100) / sum}%</div>
+          <div style={{ width: "9vw" }}>{expenses[index]}₮</div>
+          <div style={{ width: "9vw" }}>{(expenses[index] * 100) / sum}%</div>
         </div>
       ))}
     </div>
   );
 };
 
-export default Chart;
+export default DoughnutChart;

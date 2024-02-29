@@ -1,0 +1,20 @@
+.container {
+  width: 42vw;
+  height: 284px;
+  border-radius: 12px;
+  background: rgb(255, 255, 255);
+}
+.head {
+  width: 42vw;
+  height: 56px;
+  padding: 20px;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(226, 232, 240, 1)
+}
+.chart {
+  width: 40vw;
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

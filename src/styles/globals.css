@@ -102,21 +102,18 @@ button {
   font-size: 24px;
 }
 .incomeExpense {
-  width: 384px;
+  width: 27vw;
   height: 216px;
-  top: 104px;
-  left: 528px;
   border-radius: 18px;
   background-color: #ffffff;
 }
 
 .cart-title {
-  width: 384px;
+  width: 27vw;
   height: 56px;
   padding: 17px 24px;
   box-sizing: border-box;
   border-bottom: 1px solid rgba(226, 232, 240, 1);
-  gap: 8px;
 }
 .cart-amount{
 font-size: 36px;

@@ -4,8 +4,9 @@ import { downIcon } from "@/components/images/downIcon";
 import { Avatar } from "@mui/material";
 import BlueCartComponent from "@/components/BlueCartComponent";
 import { CartDetail } from "@/components/IncomeExpenceComponent";
-import Chart from "@/components/chartComponent";
+import DoughnutChart from "@/components/doughnutChartComponent";
 import LastRecords from "@/components/lastRecordsComponent";
+import Barchart from "@/components/barchartComponent";
 
 export default function Dashboard() {
   return (
@@ -14,7 +15,7 @@ export default function Dashboard() {
         <div
           style={{
             display: "flex",
-            gap: "20px",
+            gap: "2vw",
             alignItems: "center",
             fontSize: "18px",
           }}
@@ -36,7 +37,7 @@ export default function Dashboard() {
           backgroundColor: "rgba(243, 244, 246, 1)",
           display: "flex",
           flexDirection: "column",
-          gap: "20px",
+          gap: "2vh",
         }}
       >
         <div className="cart">
@@ -58,10 +59,10 @@ export default function Dashboard() {
         </div>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div>
-            <Chart />
+            <Barchart />
           </div>
           <div>
-            <Chart />
+            <DoughnutChart />
           </div>
         </div>
         <div>
