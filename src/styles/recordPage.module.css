@@ -1,0 +1,26 @@
+.records {
+  width: 282px;
+  height: 1080px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background-color: rgba(249, 250, 251, 1);
+  border: 1px solid rgba(229, 231, 235, 1);
+}
+.radio {
+  width: 16px;
+  height: 32px;
+}
+.button{
+    width: 250px;
+    height: 32px;
+    margin: 13px 0 25px 0;
+}
+.type{
+    font-weight: 500;
+}
+.typesContainer{
+    padding: 6px 0;
+}
+.categoryContainer{
+    padding: 5px 0;
+}
