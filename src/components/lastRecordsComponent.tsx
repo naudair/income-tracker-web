@@ -1,32 +1,27 @@
+import axios from "axios";
 import style from "../styles/LastRecord.module.css";
-import { HouseIcon } from "./images/houseIcon";
+import { useEffect, useState } from "react";
+import {ListItem} from "./listItemComponents";
 
 export default function LastRecords() {
+  const [transaction, setTransaction] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get("http://localhost:8080/get-transaction");
+      setTransaction(response.data);
+    };
+    fetchData();
+  }, []);
+
+  // console.log(transaction);
   return (
     <div className={style.lastRecord}>
       <div className={style.head}>Last Records</div>
       <div className={style.container}>
-        {array.map((array) => (
-          <div key={array} className={style.body}>
-            <div style={{ display: "flex", gap: "15px", lineHeight: "20px" }}>
-              <HouseIcon />
-              <div>
-                {array}
-                <div style={{ color: "rgba(107, 114, 128, 1)", fontSize:"13px" }}>3 hours ago</div>
-              </div>
-            </div>
-            <div style={{ color: "rgba(132, 204, 22, 1)" }}>-1 000₮</div>
-          </div>
+        {transaction.map((transaction, index) => (
+          <ListItem key={index} transaction={transaction} />
         ))}
       </div>
     </div>
   );
 }
-
-const array = [
-  "Lending & Renting",
-  "Lending & Renting",
-  "Lending & Renting",
-  "Lending & Renting",
-  "Lending & Renting",
-];
