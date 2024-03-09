@@ -3,7 +3,7 @@ import { RightArrow } from "@/components/images/rightArrow";
 import { SeeIcon } from "@/components/images/seeIcon";
 import styles from "@/styles/recordPage.module.css";
 
-export default function RecordComponent() {
+export default function SideBarComponent() {
   return (
       
         <div className={styles.records}>
@@ -64,12 +64,12 @@ export default function RecordComponent() {
               </div>
             </div>
           </div>
-          <div>
+          {/* <div>
             <p className={styles.type}>Amount Range</p>
             <div>0</div>
             <div>1000</div>
             <div></div>
-          </div>
+          </div> */}
         </div>
   );
 }

@@ -9,14 +9,15 @@ export default function Head() {
       <div
         style={{
           display: "flex",
+          flexDirection:'row',
           gap: "2vw",
           alignItems: "center",
           fontSize: "18px",
         }}
       >
         <Icon />
-        <p onClick={() => router.push("/dashboard")} style={{ fontWeight: "500" }}>Dashboard</p>
-        <p onClick={() => router.push("/records")}style={{ fontWeight: "300" }}>Records</p>
+        <p onClick={() => router.push("/dashboard")} style={{ fontWeight: router.pathname==='/dashboard' ?"500":'300' }}>Dashboard</p>
+        <p onClick={() => router.push("/records")}style={{ fontWeight: router.pathname==='/records' ?"500":'300'}}>Records</p>
       </div>
       <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
         <button style={{ width: "120px", height: "35px", fontSize: "18px" }}>
