@@ -1,6 +1,6 @@
 .lastRecord {
   width: 85.3vw;
-  height: 456px;
+  min-height: 456px;
   left: 120px;
   border-radius: 12px;
   background-color: #ffffff;

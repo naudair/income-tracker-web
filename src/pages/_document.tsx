@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
@@ -8,6 +9,9 @@ export default function Document() {
         <Main />
         <NextScript />
       </body>
+
+      <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
     </Html>
   );
 }

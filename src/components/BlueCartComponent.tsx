@@ -2,7 +2,6 @@ import bg from "../../public/card.png";
 export default function BlueCartComponent() {
   return (
     <div
-      className="some-class"
       style={{
         backgroundImage: `url(${bg.src})`,
         width: "384px",

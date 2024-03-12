@@ -1,5 +1,5 @@
 .records {
-  width: 250px;
+  width: 20vw;
   height: 900px;
   padding: 10px 16px;
   border-radius: 12px;
@@ -11,7 +11,7 @@
   height: 32px;
 }
 .button {
-  width: 250px;
+  width: 20vw;
   height: 32px;
   margin: 13px 0 25px 0;
 }

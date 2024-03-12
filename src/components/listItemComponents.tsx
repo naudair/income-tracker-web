@@ -20,7 +20,6 @@ export const ListItem = ({ transaction }: { transaction: Transaction }) => {
 
   const differenceHours = Math.round(differenceMs / (1000 * 60 * 60));
 
-  // console.log(transaction);
   return (
     <div className={style.body}>
       <div style={{ display: "flex", gap: "15px", lineHeight: "20px" }}>
@@ -33,7 +32,7 @@ export const ListItem = ({ transaction }: { transaction: Transaction }) => {
         </div>
       </div>
       <div style={{ color: "rgba(132, 204, 22, 1)" }}>
-        {transaction.amount} ₮
+        {transaction.amount}₮
       </div>
     </div>
   );
