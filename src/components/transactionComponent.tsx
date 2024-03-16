@@ -24,14 +24,9 @@ type IconsType = {
   food: JSX.Element;
   shopping: JSX.Element;
   clothing: JSX.Element;
+  [x: string]: JSX.Element;
 };
 
-const iconColors: ColorMap = {
-  food: "#FB8A22",
-  bills: "#16A34A",
-  shopping: "red",
-  clothing: "#6F6CF3",
-};
 const amountColors: ColorMap = {
   income: "#16A34A",
   expense: "#FF0101",
@@ -39,6 +34,12 @@ const amountColors: ColorMap = {
 const incomeExpense: ColorMap = {
   income: "",
   expense: "-",
+};
+const iconColors: ColorMap = {
+  food: "#FB8A22",
+  bills: "#16A34A",
+  shopping: "red",
+  clothing: "#6F6CF3",
 };
 const icons: IconsType = {
   bills: <BillsIcon />,
@@ -86,19 +87,15 @@ export const Transaction = ({ transaction }: { transaction: Transaction }) => {
           <div
             style={{
               display: "flex",
+              gap: "12px",
               fontSize: "14px",
               lineHeight: "22px",
             }}
           >
-            <span
-              style={{
-                width: "50px",
-                color: "grey",
-              }}
-            >
+            <span style={{ color: "grey" }}>
               {hour}:{min}
             </span>
-            <span style={{ width: "15px" }}>|</span>
+            <span>|</span>
             <span style={{ color: "grey" }}>{transaction.note}</span>
           </div>
         </div>

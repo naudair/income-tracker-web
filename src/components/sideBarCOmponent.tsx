@@ -3,33 +3,35 @@ import { RightArrow } from "@/components/images/rightArrow";
 import { SeeIcon } from "@/components/images/seeIcon";
 import styles from "@/styles/recordPage.module.css";
 import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
+import AddRecordModal from "./addRecordIncomeModal";
 
 export default function SideBarComponent() {
   return (
     <div className={styles.records}>
       <h2>Records</h2>
-      <button className={styles.button}>+ Add</button>
+
+      <AddRecordModal />
       <input style={{ width: "20vw", height: "32px" }} placeholder="Search" />
       <div className={styles.typesContainer}>
         <p className={styles.type}>Types</p>
         <div style={{ paddingLeft: "8px", fontWeight: "300" }}>
           <RadioGroup>
             <FormControlLabel
-              value="female"
+              value="All"
               control={<Radio />}
-              label="Female"
+              label="All"
               className={styles.radio}
             />
             <FormControlLabel
-              value="male"
+              value="Income"
               control={<Radio />}
-              label="Male"
+              label="Income"
               className={styles.radio}
             />
             <FormControlLabel
-              value="other"
+              value="Expense"
               control={<Radio />}
-              label="Other"
+              label="Expense"
               className={styles.radio}
             />
           </RadioGroup>

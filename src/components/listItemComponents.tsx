@@ -1,5 +1,9 @@
 import style from "../styles/LastRecord.module.css";
 import { HouseIcon } from "./images/houseIcon";
+// import { BillsIcon } from "./images/billsIcon";
+// import { ClothingIcon } from "./images/clothingIcon";
+// import { FoodIcon } from "./images/foodIcon";
+// import { ShoppingIcon } from "./images/shoppingIcon";
 
 type Transaction = {
   amount: number;
@@ -12,6 +16,39 @@ type Transaction = {
   __v: number;
   _id: string;
 };
+interface ColorMap {
+  [key: string]: string;
+}
+
+// type IconsType = {
+//   bills: JSX.Element;
+//   food: JSX.Element;
+//   shopping: JSX.Element;
+//   clothing: JSX.Element;
+// };
+
+const amountColors: ColorMap = {
+  income: "#16A34A",
+  expense: "#FF0101",
+};
+const incomeExpense: ColorMap = {
+  income: "",
+  expense: "-",
+};
+
+// const iconColors: ColorMap = {
+//   food: "#FB8A22",
+//   bills: "#16A34A",
+//   shopping: "red",
+//   clothing: "#6F6CF3",
+// };
+// const icons: IconsType = {
+//   bills: <BillsIcon />,
+//   food: <FoodIcon />,
+//   shopping: <ShoppingIcon />,
+//   clothing: <ClothingIcon />,
+// };
+
 export const ListItem = ({ transaction }: { transaction: Transaction }) => {
   const date1 = new Date(transaction.createdAt);
   const date2 = new Date();
@@ -31,8 +68,8 @@ export const ListItem = ({ transaction }: { transaction: Transaction }) => {
           </div>
         </div>
       </div>
-      <div style={{ color: "rgba(132, 204, 22, 1)" }}>
-        {transaction.amount}₮
+      <div style={{ color: amountColors[transaction.transactionType] }}>
+      {incomeExpense[transaction.transactionType]} {transaction.amount}₮
       </div>
     </div>
   );
