@@ -5,15 +5,15 @@ import styles from "@/styles/recordPage.module.css";
 import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import AddRecordModal from "./addRecordIncomeModal";
 
-export default function SideBarComponent() {
+export const SideBarComponent = () => {
   return (
     <div className={styles.records}>
       <h2>Records</h2>
 
       <AddRecordModal />
-      <input style={{ width: "20vw", height: "32px" }} placeholder="Search" />
+      <input style={{ width: "20vw", height: "32px", margin:"20px 0 0 0" }} placeholder="Search" />
       <div className={styles.typesContainer}>
-        <p className={styles.type}>Types</p>
+        <p className={styles.type}>Type</p>
         <div style={{ paddingLeft: "8px", fontWeight: "300" }}>
           <RadioGroup>
             <FormControlLabel

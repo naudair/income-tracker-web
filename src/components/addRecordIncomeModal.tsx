@@ -2,6 +2,8 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import styles from "@/styles/recordPage.module.css";
+import { ToggleButtonComp } from "./toggleButton";
+import { Input } from "@mui/material";
 
 const style = {
   position: "absolute",
@@ -13,8 +15,11 @@ const style = {
   height: "512px",
   borderRadius: "12px",
   bgcolor: "#ffffff",
-  //   padding:"25px",
   boxSizing: "border-box",
+  // textAlign:"center",
+  display:"flex",
+  flexDirection:"column",
+  alignItems:"center"
 };
 
 export default function AddRecordModal() {
@@ -36,20 +41,19 @@ export default function AddRecordModal() {
         <Box sx={style}>
           <div
             style={{
+              width:"752px",
               fontSize: "19px",
               fontWeight: "600",
               padding: "20px",
               borderBottom: "1px solid #E2E8F0",
+              display:"flex",
+              justifyContent:"space-between"
             }}
           >
-            Add Record
+            <span>Add Record</span>
+            <span onClick={handleClose}>×</span>
           </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-            }}
-          >
+          <div style={{ display: "flex" }}>
             <div
               style={{
                 display: "flex",
@@ -59,36 +63,30 @@ export default function AddRecordModal() {
               }}
             >
               <div>
-                <button
-                  style={{
-                    height: "35px",
-                    padding: " 0 15px",
-                    marginRight: "20px",
-                  }}
-                >
-                  Expense
-                </button>
-                <button
-                  style={{
-                    height: "35px",
-                    padding: " 0 15px",
-                    backgroundColor: "#16A34A",
-                  }}
-                >
-                  Income
-                </button>
+                <ToggleButtonComp />
               </div>
-              <input style={{ width: "355px" }} />
               <div>
-                <p style={{ lineHeight:"0px" }}>Category</p>
-                <input style={{ width: "355px" }} />
+                <p style={{ lineHeight: "0px" }}>Amount</p>
+                <input style={{ width: "355px" }} type="number" placeholder="00.00" />
+              </div>
+              <div>
+                <p style={{ lineHeight: "0px" }}>Category</p>
+                <input
+                  style={{ width: "355px", margin: "5px 0 10px 0" }}
+                  placeholder="Choose"
+                />
+              </div>
+              <div>
+                Date
+                <input style={{ width: "355px", marginTop:"8px" }} type="date" />
               </div>
             </div>
-            <div style={{ padding: "20px" }}>
-              payee
-              <input style={{ width: "355px" }} />
+            <div style={{ padding: "30px 20px 20px 20px" }}>
+              Note
+              <textarea className={styles.textbox} placeholder="Write here" />
             </div>
           </div>
+          <button className={styles.addBtn} onClick={handleClose} >Add Record</button>
         </Box>
       </Modal>
     </div>

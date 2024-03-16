@@ -1,7 +1,8 @@
 import Head from "@/components/headComponent";
 import { LeftButton } from "@/components/images/leftButton";
 import { RightButton } from "@/components/images/rightButton";
-import SideBarComponent from "@/components/sideBarComponent";
+import { SideBarComponent } from "@/components/sideBarComponent";
+
 import {Transaction} from "@/components/transactionComponent";
 import styles from "@/styles/recordPage.module.css";
 import axios from "axios";
@@ -32,7 +33,7 @@ export default function RecordPage() {
           flexDirection: "column",
           alignItems: "center",
           width: "100%",
-          height: "93vh",
+          minHeight: "93vh",
           backgroundColor: "rgba(243, 244, 246, 1)",
         }}
       >
