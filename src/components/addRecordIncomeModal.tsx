@@ -3,6 +3,11 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import styles from "@/styles/recordPage.module.css";
 import { ToggleButtonComp } from "./toggleButton";
+import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
+import { ClothingFill } from "./images/clothingfill";
+import { ShoppingFill } from "./images/shoppingfill";
+import { FoodFill } from "./images/foodfill";
+import { BillsFill } from "./images/billfill";
 
 const style = {
   position: "absolute",
@@ -15,14 +20,17 @@ const style = {
   borderRadius: "12px",
   bgcolor: "#ffffff",
   boxSizing: "border-box",
-  // textAlign:"center",
-  display:"flex",
-  flexDirection:"column",
-  alignItems:"center"
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
 };
 
 export default function AddRecordModal() {
   const [open, setOpen] = React.useState(false);
+  const [category, setCategory] = React.useState("");
+  const handleCategory = (e: SelectChangeEvent) => {
+    setCategory(e.target.value);
+  };
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -40,13 +48,13 @@ export default function AddRecordModal() {
         <Box sx={style}>
           <div
             style={{
-              width:"752px",
+              width: "752px",
               fontSize: "19px",
               fontWeight: "600",
               padding: "20px",
               borderBottom: "1px solid #E2E8F0",
-              display:"flex",
-              justifyContent:"space-between"
+              display: "flex",
+              justifyContent: "space-between",
             }}
           >
             <span>Add Record</span>
@@ -66,18 +74,54 @@ export default function AddRecordModal() {
               </div>
               <div>
                 <p style={{ lineHeight: "0px" }}>Amount</p>
-                <input style={{ width: "355px" }} type="number" placeholder="00.00" />
-              </div>
-              <div>
-                <p style={{ lineHeight: "0px" }}>Category</p>
                 <input
-                  style={{ width: "355px", margin: "5px 0 10px 0" }}
-                  placeholder="Choose"
+                  style={{ width: "355px" }}
+                  type="number"
+                  placeholder="₮ 000.00"
                 />
               </div>
               <div>
+                <p style={{ lineHeight: "0px" }}>Category</p>
+                <Select
+                  className={styles.select}
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={category}
+                  label="Category"
+                  onChange={handleCategory}
+                >
+                  <MenuItem value={"Bills"}>
+                    <div className={styles.billicon}>
+                      <BillsFill />
+                    </div>
+                    Bills
+                  </MenuItem>
+                  <MenuItem value={"Food"}>
+                    <div className={styles.foodicon}>
+                      <FoodFill />
+                    </div>
+                    Food
+                  </MenuItem>
+                  <MenuItem value={"Shopping"}>
+                    <div className={styles.shoppingicon}>
+                      <ShoppingFill />
+                    </div>
+                    Shopping
+                  </MenuItem>
+                  <MenuItem value={"Clothing"}>
+                    <div className={styles.clothingicon}>
+                      <ClothingFill />
+                    </div>
+                    Clothing
+                  </MenuItem>
+                </Select>
+              </div>
+              <div>
                 Date
-                <input style={{ width: "355px", marginTop:"8px" }} type="date" />
+                <input
+                  style={{ width: "355px", marginTop: "8px" }}
+                  type="date"
+                />
               </div>
             </div>
             <div style={{ padding: "30px 20px 20px 20px" }}>
@@ -85,7 +129,9 @@ export default function AddRecordModal() {
               <textarea className={styles.textbox} placeholder="Write here" />
             </div>
           </div>
-          <button className={styles.addBtn} onClick={handleClose} >Add Record</button>
+          <button className={styles.addBtn} onClick={handleClose}>
+            Add Record
+          </button>
         </Box>
       </Modal>
     </div>

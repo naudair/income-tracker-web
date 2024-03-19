@@ -36,8 +36,8 @@ const incomeExpense: ColorMap = {
   expense: "-",
 };
 const iconColors: ColorMap = {
+    bills: "#16A34A",
   food: "#FB8A22",
-  bills: "#16A34A",
   shopping: "red",
   clothing: "#6F6CF3",
 };

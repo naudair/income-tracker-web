@@ -36,3 +36,17 @@ export const currencyData = [
   "EGP - Egyptian Pound",
   "NGN - Nigerian Naira",
 ];
+
+export const categoryData = [
+  "Food & Drinks",
+  "Shopping",
+  "Housing",
+  "Transportation",
+  "Vehicle",
+  "Life & Entertainment",
+  "Communication, PC",
+  "Financial expenses",
+  "Investments",
+  "Income",
+  "Others",
+];

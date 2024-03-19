@@ -4,6 +4,7 @@ import { SeeIcon } from "@/components/images/seeIcon";
 import styles from "@/styles/recordPage.module.css";
 import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import AddRecordModal from "./addRecordIncomeModal";
+import { categoryData } from "@/utils/data";
 
 export const SideBarComponent = () => {
   return (
@@ -11,7 +12,10 @@ export const SideBarComponent = () => {
       <h2>Records</h2>
 
       <AddRecordModal />
-      <input style={{ width: "20vw", height: "32px", margin:"20px 0 0 0" }} placeholder="Search" />
+      <input
+        style={{ width: "20vw", height: "32px", margin: "20px 0 0 0" }}
+        placeholder="Search"
+      />
       <div className={styles.typesContainer}>
         <p className={styles.type}>Type</p>
         <div style={{ paddingLeft: "8px", fontWeight: "300" }}>
@@ -35,18 +39,6 @@ export const SideBarComponent = () => {
               className={styles.radio}
             />
           </RadioGroup>
-          {/* <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
-            <input className={styles.radio} type="radio" checked />
-            <div style={{ paddingTop: "3px" }}>All</div>
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
-            <input className={styles.radio} type="radio" />
-            <div style={{ paddingTop: "3px" }}>Income</div>
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
-            <input className={styles.radio} type="radio" />
-            <div style={{ paddingTop: "3px" }}>Expense</div>
-          </div> */}
         </div>
       </div>
       <div className={styles.categoryContainer}>
@@ -55,7 +47,7 @@ export const SideBarComponent = () => {
           <p style={{ color: "rgba(31, 41, 55, 0.2)" }}>Clear</p>
         </div>
         <div style={{ padding: "7px 0 7px 12px", fontWeight: "300" }}>
-          {array.map((array) => (
+          {categoryData.map((array) => (
             <div
               key={array}
               style={{
@@ -85,18 +77,4 @@ export const SideBarComponent = () => {
           </div> */}
     </div>
   );
-}
-
-const array = [
-  "Food & Drinks",
-  "Shopping",
-  "Housing",
-  "Transportation",
-  "Vehicle",
-  "Life & Entertainment",
-  "Communication, PC",
-  "Financial expenses",
-  "Investments",
-  "Income",
-  "Others",
-];
+};

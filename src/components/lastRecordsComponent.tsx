@@ -1,5 +1,5 @@
 import axios from "axios";
-import style from "../styles/LastRecord.module.css";
+import style from "../styles/lastRecord.module.css";
 import { useEffect, useState } from "react";
 import {ListItem} from "./listItemComponents";
 import { useRouter } from "next/router";

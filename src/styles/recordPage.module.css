@@ -57,6 +57,28 @@
   width: 348px;
   height: 40px;
   border-radius: 20;
-  /* display: flex; */
 
+}
+
+.select{
+  width: 355px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background-color: #f3f4f6;
+  padding: 10px;
+  font-size: 18px;
+  display: flex;
+}
+.billicon{
+padding: 5px 10px 0 10px;
+}
+.foodicon{
+ padding: 3px 10px 0 10px; 
+}
+.shoppingicon{
+padding-top: 4px;
+}
+.clothingicon{
+  padding: 5px 10px 0 10px;
 }

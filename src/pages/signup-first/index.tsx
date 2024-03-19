@@ -1,9 +1,8 @@
 import { CurrencyIcon } from "@/components/images/currencyIcon";
 import { GeldIcon } from "@/components/images/geldicon";
 import Stepper1 from "@/components/stepper1Component";
-import { currencyData } from "@/utils/currencyData";
+import { currencyData } from "@/utils/data";
 import { useRouter } from "next/router";
-// import { HorizontalNonLinearStepper }
 
 export default function SignupFirst() {
   const router = useRouter();
