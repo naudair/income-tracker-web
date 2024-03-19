@@ -69,16 +69,29 @@
   padding: 10px;
   font-size: 18px;
   display: flex;
+
+
 }
 .billicon{
 padding: 5px 10px 0 10px;
 }
 .foodicon{
  padding: 3px 10px 0 10px; 
+ display: flex;
+ width: 20px;
 }
 .shoppingicon{
 padding-top: 4px;
 }
 .clothingicon{
   padding: 5px 10px 0 10px;
+}
+.modalHead{
+    width: 752px;
+    font-size: 19px;
+    font-weight: 600;
+    padding: 20px;
+    border-bottom: 1px solid #E2E8F0;
+    display: flex;
+    justify-content: space-between;
 }

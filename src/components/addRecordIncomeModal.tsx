@@ -46,17 +46,7 @@ export default function AddRecordModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <div
-            style={{
-              width: "752px",
-              fontSize: "19px",
-              fontWeight: "600",
-              padding: "20px",
-              borderBottom: "1px solid #E2E8F0",
-              display: "flex",
-              justifyContent: "space-between",
-            }}
-          >
+          <div className={styles.modalHead}>
             <span>Add Record</span>
             <span onClick={handleClose}>×</span>
           </div>
@@ -69,7 +59,9 @@ export default function AddRecordModal() {
                 padding: "20px",
               }}
             >
-              <div><ToggleButtonComp /></div>
+              <div>
+                <ToggleButtonComp />
+              </div>
               <div>
                 <p style={{ lineHeight: "0px" }}>Amount</p>
                 <input
