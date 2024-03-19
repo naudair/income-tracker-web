@@ -69,9 +69,7 @@ export default function AddRecordModal() {
                 padding: "20px",
               }}
             >
-              <div>
-                <ToggleButtonComp />
-              </div>
+              <div><ToggleButtonComp /></div>
               <div>
                 <p style={{ lineHeight: "0px" }}>Amount</p>
                 <input
