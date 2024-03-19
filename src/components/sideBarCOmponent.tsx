@@ -6,7 +6,7 @@ import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import AddRecordModal from "./addRecordIncomeModal";
 import { categoryData } from "@/utils/data";
 
-export const SideBarComponent = () => {
+export default function SideBarComponent (){
   return (
     <div className={styles.records}>
       <h2>Records</h2>
