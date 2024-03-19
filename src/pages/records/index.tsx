@@ -1,7 +1,7 @@
 import Head from "@/components/headComponent";
 import { LeftButton } from "@/components/images/leftButton";
 import { RightButton } from "@/components/images/rightButton";
-// import SideBarComponent from "@/components/sideBarComponent";
+import {SideBarComponent} from "@/components/sideBarComponent";
 import {Transaction} from "@/components/transactionComponent";
 import styles from "@/styles/recordPage.module.css";
 import axios from "axios";
@@ -44,7 +44,7 @@ export default function RecordPage() {
             gap: "20px",
           }}
         >
-          {/* <SideBarComponent /> */}
+          <SideBarComponent />
           <div style={{ width: "100%" }}>
             <div
               style={{
