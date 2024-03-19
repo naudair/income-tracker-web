@@ -1,7 +1,7 @@
 import Head from "@/components/headComponent";
 import { LeftButton } from "@/components/images/leftButton";
 import { RightButton } from "@/components/images/rightButton";
-import { SideBarComponent } from "@/components/sideBarComponent";
+import { SideBarComponent } from "@/components";
 
 import {Transaction} from "@/components/transactionComponent";
 import styles from "@/styles/recordPage.module.css";
