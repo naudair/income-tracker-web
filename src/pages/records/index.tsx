@@ -62,7 +62,7 @@ export default function RecordPage() {
                   <RightButton />
                 </div>
               </div>
-              <select className={styles.select}>
+              <select className={styles.select1}>
                 <option>Newest first</option>
                 <option>Oldest first</option>
               </select>

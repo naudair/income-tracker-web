@@ -23,7 +23,7 @@
 .categoryContainer {
   padding: 5px 0;
 }
-.select {
+.select1 {
   width: 160px;
   height: 40px;
   margin-top: 5px;
@@ -31,6 +31,8 @@
   border-radius: 8px;
   padding: 0 8px;
   background-color: rgba(249, 250, 251, 1);
+  font-weight: 600;
+  font-size: 15px;
 }
 .checkbox {
   width: 24px;
@@ -57,41 +59,41 @@
   width: 348px;
   height: 40px;
   border-radius: 20;
-
 }
 
-.select{
+.select {
   width: 355px;
   height: 48px;
   border-radius: 8px;
-  border: 1px solid #d1d5db;
+  border: none;
   background-color: #f3f4f6;
-  padding: 10px;
+  /* padding: 10px; */
   font-size: 18px;
   display: flex;
-
-
 }
-.billicon{
-padding: 5px 10px 0 10px;
+.billicon {
+  display: flex;
+  gap: 5px;
+  /* padding-left: 10px;s */
 }
-.foodicon{
- padding: 3px 10px 0 10px; 
- display: flex;
- width: 20px;
+.foodicon {
+  display: flex;
+  gap: 5px;
 }
-.shoppingicon{
-padding-top: 4px;
+.shoppingicon {
+  display: flex;
+  gap: 5px;
 }
-.clothingicon{
-  padding: 5px 10px 0 10px;
+.clothingicon {
+  display: flex;
+  gap: 5px;
 }
-.modalHead{
-    width: 752px;
-    font-size: 19px;
-    font-weight: 600;
-    padding: 20px;
-    border-bottom: 1px solid #E2E8F0;
-    display: flex;
-    justify-content: space-between;
+.modalHead {
+  width: 752px;
+  font-size: 19px;
+  font-weight: 600;
+  padding: 20px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
 }

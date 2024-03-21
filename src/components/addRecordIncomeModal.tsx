@@ -3,11 +3,11 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import styles from "@/styles/recordPage.module.css";
 import { ToggleButtonComp } from "./toggleButton";
-import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
-import { ClothingFill } from "./images/clothingfill";
-import { ShoppingFill } from "./images/shoppingfill";
-import { FoodFill } from "./images/foodfill";
-import { BillsFill } from "./images/billfill";
+import {
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from "@mui/material";
 
 const style = {
   position: "absolute",
@@ -24,16 +24,28 @@ const style = {
   flexDirection: "column",
   alignItems: "center",
 };
+const selectStyle = {
+  autoFocus: false,
+  PaperProps: {
+    sx: {
+      borderRadius: "12px",
+      paddingInline: "8px",
+      border: "1px solid #E0E0E0",
+      boxShadow:
+        "0px 4px 6px -1px rgba(0, 0, 0, 0.10), 0px 2px 4px -2px rgba(0, 0, 0, 0.10)",
+    },
+  },
+};
 
 export default function AddRecordModal() {
   const [open, setOpen] = React.useState(false);
   const [category, setCategory] = React.useState("");
+  const [type, setType] = React.useState("expense");
   const handleCategory = (e: SelectChangeEvent) => {
     setCategory(e.target.value);
   };
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
   return (
     <div>
       <button className={styles.button} onClick={handleOpen}>
@@ -60,7 +72,7 @@ export default function AddRecordModal() {
               }}
             >
               <div>
-                <ToggleButtonComp />
+                <ToggleButtonComp type={type}  setType={setType}/>
               </div>
               <div>
                 <p style={{ lineHeight: "0px" }}>Amount</p>
@@ -72,39 +84,17 @@ export default function AddRecordModal() {
               </div>
               <div>
                 <p style={{ lineHeight: "0px" }}>Category</p>
-                <Select
+                  <Select
                   className={styles.select}
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={category}
-                  label="Category"
-                  onChange={handleCategory}
-                >
-                  <MenuItem value={"Bills"}>
-                    <div className={styles.billicon}>
-                      <BillsFill />
-                    </div>
-                    Bills
-                  </MenuItem>
-                  <MenuItem value={"Food"}>
-                    <div className={styles.foodicon}>
-                      <FoodFill />
-                    </div>
-                    Food
-                  </MenuItem>
-                  <MenuItem value={"Shopping"}>
-                    <div className={styles.shoppingicon}>
-                      <ShoppingFill />
-                    </div>
-                    Shopping
-                  </MenuItem>
-                  <MenuItem value={"Clothing"}>
-                    <div className={styles.clothingicon}>
-                      <ClothingFill />
-                    </div>
-                    Clothing
-                  </MenuItem>
-                </Select>
+                    value={category}
+                    onChange={handleCategory}
+                    MenuProps={selectStyle}
+                  >
+                    <MenuItem value={"Bills"}>Bills</MenuItem>
+                    <MenuItem value={"Food"}>Food</MenuItem>
+                    <MenuItem value={"Shopping"}>Shopping</MenuItem>
+                    <MenuItem value={"Clothing"}>Clothing</MenuItem>
+                  </Select>
               </div>
               <div>
                 Date
@@ -119,8 +109,10 @@ export default function AddRecordModal() {
               <textarea className={styles.textbox} placeholder="Write here" />
             </div>
           </div>
-          <button className={styles.addBtn} onClick={handleClose}>
-            Add Record
+          <button className={styles.addBtn} onClick={handleClose}
+           style={{
+            backgroundColor: type === "expense" ? "#0166FF" : "#16A34A" }}>
+            Add Record 
           </button>
         </Box>
       </Modal>

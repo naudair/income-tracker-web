@@ -2,31 +2,35 @@ import * as React from "react";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
-export const ToggleButtonComp = () => {
-  const [alignment, setAlignment] = React.useState("web");
+interface ToggleButtonProps {
+  type: string;
+  setType: (type: string) => void;
+}
 
+export const ToggleButtonComp : React.FC<ToggleButtonProps> = ({type, setType}) => {
   const handleChange = (
     event: React.MouseEvent<HTMLElement>,
     newAlignment: string
   ) => {
-    setAlignment(newAlignment);
+    setType(newAlignment);
   };
 
   return (
     <ToggleButtonGroup
       color="primary"
-      value={alignment}
+      value={type}
       exclusive
       onChange={handleChange}
       aria-label="Platform"
     >
       <ToggleButton
         style={{
-          backgroundColor: alignment === "expense" ? "#0166FF" : "inherit",
-          color: alignment === "expense" ? "#ffffff" : "inherit",
+          backgroundColor: type === "expense" ? "#0166FF" : "#ffffff",
+          color: type === "expense" ? "#ffffff" : "black",
           width: "178px",
           height:"40px",
           borderRadius: "20px 0 0 20px",
+          borderRight:"2px solid rgba(0, 0, 0, 0.12)"
         }}
         value="expense"
       >
@@ -34,8 +38,8 @@ export const ToggleButtonComp = () => {
       </ToggleButton>
       <ToggleButton
         style={{
-          backgroundColor: alignment === "income" ? "#16A34A" : "inherit",
-          color: alignment === "income" ? "#ffffff" : "inherit",
+          backgroundColor: type === "income" ? "#16A34A" : "#ffffff",
+          color: type === "income" ? "#ffffff" : "black",
           width: "178px",
           height:"40px",
           borderRadius: "0 20px 20px 0",
