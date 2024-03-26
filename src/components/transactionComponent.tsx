@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { BillsIcon } from "./images/billsIcon";
 import { ClothingIcon } from "./images/clothingIcon";
 import { FoodIcon } from "./images/foodIcon";
@@ -36,7 +37,7 @@ const incomeExpense: ColorMap = {
   expense: "-",
 };
 const iconColors: ColorMap = {
-    bills: "#16A34A",
+  bills: "#16A34A",
   food: "#FB8A22",
   shopping: "red",
   clothing: "#6F6CF3",
@@ -49,9 +50,9 @@ const icons: IconsType = {
 };
 
 export const Transaction = ({ transaction }: { transaction: Transaction }) => {
-  const date = new Date(transaction.createdAt);
-  const hour = date.getHours();
-  const min = date.getMinutes();
+  const day = dayjs(transaction.createdAt).format("YY-MM-DD");
+
+  const time = dayjs(transaction.createdAt).format("hh:mm");
 
   return (
     <div
@@ -87,15 +88,14 @@ export const Transaction = ({ transaction }: { transaction: Transaction }) => {
           <div
             style={{
               display: "flex",
-              gap: "12px",
+              gap: "10px",
               fontSize: "14px",
               lineHeight: "22px",
             }}
           >
-            <span style={{ color: "grey" }}>
-              {hour}:{min}
-            </span>
-            <span>|</span>
+            <span style={{ color: "darkgrey" }}>{day}</span>
+            <span style={{ color: "dimgray" }}>{time}</span>
+            <span style={{ padding: "0 10px" }}>|</span>
             <span style={{ color: "grey" }}>{transaction.note}</span>
           </div>
         </div>

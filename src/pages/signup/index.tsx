@@ -14,7 +14,17 @@ export default function Signup() {
   const [usernameError, setUsernameError] = useState("");
   const [repasswordError, setRepasswordError] = useState("");
   const [required, setRequired] = useState("");
+  // const [passwordErro, setPasswordErro] = useState("");
 
+  const handleChangeUsername = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const username = event.target.value;
+    if (username.length < 4) {
+      setUsernameError("Username must be more than 4 characters.");
+    } else {
+      setUsernameError("");
+    }
+    setUsername(event.target.value);
+  };
   const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     const email = event.target.value;
     if (!email.includes("@")) {
@@ -24,37 +34,29 @@ export default function Signup() {
     }
     setEmail(event.target.value);
   };
-
   const handleChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     const password = event.target.value;
     if (password.length < 8) {
-      setPasswordError("Please, enter your password.");
+      setPasswordError("Password must be more than 8 characters.");
     } else {
       setPasswordError("");
     }
+    // if (!password.includes(1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9 || 0)) {
+    //   setPasswordErro("Password must be a combination of letters and numbers.");
+    // } else {
+    //   setPasswordErro("");
+    // }
     setPassword(event.target.value);
   };
-
-  const handleChangeUsername = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const username = event.target.value;
-    if (username.length < 4) {
-      setUsernameError("Please, enter your name.");
-    } else {
-      setUsernameError("");
-    }
-    setUsername(event.target.value);
-  };
-
   const handleChangeRepass = (event: React.ChangeEvent<HTMLInputElement>) => {
     const repassword = event.target.value;
     if (repassword === password) {
       setRepasswordError("");
     } else {
-      setRepasswordError("Please, comfirm password.");
+      setRepasswordError("Please, comfirm your password.");
     }
     setRepassword(event.target.value);
   };
-
   const signUpUser = async () => {
     await axios
       .post("http://localhost:8080/signup", {
@@ -71,7 +73,6 @@ export default function Signup() {
         console.log(err);
       });
   };
-
   const handleSignUp = () => {
     if (
       email === "" ||
@@ -84,10 +85,9 @@ export default function Signup() {
       signUpUser();
     }
   };
-
   return (
     <div style={{ display: "flex", height: "100vh", color: "black" }}>
-      <div className="login-con"  style={{ width: "50vw" }}>
+      <div className="login-con" style={{ width: "50vw" }}>
         <GeldIcon />
         <div style={{ textAlign: "center", padding: "20px 0 45px 0" }}>
           <div style={{ fontSize: "30px", fontWeight: "500", padding: "15px" }}>
@@ -97,7 +97,7 @@ export default function Signup() {
             Sign up below to create your Wallet account
           </div>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
           <input
             placeholder="Name"
             value={username}
@@ -117,6 +117,7 @@ export default function Signup() {
             onChange={handleChangePassword}
           />
           <div className="error">{passwordError}</div>
+          {/* <div className="error">{passwordErro}</div> */}
           <input
             placeholder="Repassword"
             value={repassword}

@@ -1,9 +1,8 @@
 import style from "../styles/LastRecord.module.css";
-import { HouseIcon } from "./images/houseIcon";
-// import { BillsIcon } from "./images/billsIcon";
-// import { ClothingIcon } from "./images/clothingIcon";
-// import { FoodIcon } from "./images/foodIcon";
-// import { ShoppingIcon } from "./images/shoppingIcon";
+import { BillsIcon } from "./images/billsIcon";
+import { ClothingIcon } from "./images/clothingIcon";
+import { FoodIcon } from "./images/foodIcon";
+import { ShoppingIcon } from "./images/shoppingIcon";
 
 type Transaction = {
   amount: number;
@@ -20,12 +19,13 @@ interface ColorMap {
   [key: string]: string;
 }
 
-// type IconsType = {
-//   bills: JSX.Element;
-//   food: JSX.Element;
-//   shopping: JSX.Element;
-//   clothing: JSX.Element;
-// };
+type IconsType = {
+  bills: JSX.Element;
+  food: JSX.Element;
+  shopping: JSX.Element;
+  clothing: JSX.Element;
+  [x: string]: JSX.Element;
+};
 
 const amountColors: ColorMap = {
   income: "#16A34A",
@@ -36,18 +36,18 @@ const incomeExpense: ColorMap = {
   expense: "-",
 };
 
-// const iconColors: ColorMap = {
-//   food: "#FB8A22",
-//   bills: "#16A34A",
-//   shopping: "red",
-//   clothing: "#6F6CF3",
-// };
-// const icons: IconsType = {
-//   bills: <BillsIcon />,
-//   food: <FoodIcon />,
-//   shopping: <ShoppingIcon />,
-//   clothing: <ClothingIcon />,
-// };
+const iconColors: ColorMap = {
+  food: "#FB8A22",
+  bills: "#16A34A",
+  shopping: "red",
+  clothing: "#6F6CF3",
+};
+const icons: IconsType = {
+  bills: <BillsIcon />,
+  food: <FoodIcon />,
+  shopping: <ShoppingIcon />,
+  clothing: <ClothingIcon />,
+};
 
 export const ListItem = ({ transaction }: { transaction: Transaction }) => {
   const date1 = new Date(transaction.createdAt);
@@ -60,16 +60,30 @@ export const ListItem = ({ transaction }: { transaction: Transaction }) => {
   return (
     <div className={style.body}>
       <div style={{ display: "flex", gap: "15px", lineHeight: "20px" }}>
-        <HouseIcon />
+        <div
+          style={{
+            borderRadius: "50%",
+            backgroundColor: iconColors[transaction.category],
+            width: "37px",
+            height: "37px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {icons[transaction.category]}
+        </div>
         <div>
           {transaction.category}
           <div style={{ color: "rgba(107, 114, 128, 1)", fontSize: "13px" }}>
             {differenceHours} hours ago
+            <span style={{ padding: "0 10px" }}>|</span>
+            <span>{transaction.note}</span>
           </div>
         </div>
       </div>
       <div style={{ color: amountColors[transaction.transactionType] }}>
-      {incomeExpense[transaction.transactionType]} {transaction.amount}₮
+        {incomeExpense[transaction.transactionType]} {transaction.amount}₮
       </div>
     </div>
   );

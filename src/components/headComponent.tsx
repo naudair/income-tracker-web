@@ -1,7 +1,7 @@
 import { Icon } from "@/components/images/icon";
 import { Avatar } from "@mui/material";
 import { useRouter } from "next/router";
-import AddRecordModal from "./addRecordIncomeModal";
+import AddRecordModal from "./addRecordModal";
 
 export default function Head() {
     const router = useRouter()

@@ -69,7 +69,7 @@ export default function RecordPage() {
             </div>
             <div>
               <p className={styles.type}>Today</p>
-              <div style={{display:"flex", flexDirection:"column", gap:"10px"}}>
+              <div className={styles.records}>
                 {todaysdata.length > 0 && todaysdata.map((transaction, index) => (
                   <Transaction key={index} transaction={transaction} />
                 ))}
@@ -77,7 +77,7 @@ export default function RecordPage() {
             </div>
             <div>
               <p className={styles.type}>History</p>
-              <div style={{display:"flex", flexDirection:"column", gap:"10px"}}>
+              <div className={styles.records}>
               {notTodaysdata.map((transaction, index) => (
                   <Transaction key={index} transaction={transaction} />
                 ))}

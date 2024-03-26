@@ -3,12 +3,12 @@ import { RightArrow } from "@/components/images/rightArrow";
 import { SeeIcon } from "@/components/images/seeIcon";
 import styles from "@/styles/recordPage.module.css";
 import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
-import AddRecordModal from "./addRecordIncomeModal";
+import AddRecordModal from "./addRecordModal";
 import { categoryData } from "@/utils/data";
 
 export const SideBarComponent =  ()=>{
   return (
-    <div className={styles.records}>
+    <div className={styles.sidebar}>
       <h2>Records</h2>
 
       <AddRecordModal />
