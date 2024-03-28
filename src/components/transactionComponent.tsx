@@ -51,7 +51,6 @@ const icons: IconsType = {
 
 export const Transaction = ({ transaction }: { transaction: Transaction }) => {
   const day = dayjs(transaction.createdAt).format("YY-MM-DD");
-
   const time = dayjs(transaction.createdAt).format("hh:mm");
 
   return (

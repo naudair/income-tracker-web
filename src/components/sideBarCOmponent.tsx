@@ -6,11 +6,16 @@ import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import AddRecordModal from "./addRecordModal";
 import { categoryData } from "@/utils/data";
 
-export const SideBarComponent =  ()=>{
+interface Props {
+  transactionType: string;
+  setTransactiontype: (type: string) => void;
+}
+
+
+export const SideBarComponent : React.FC<Props> = ({ transactionType, setTransactiontype }) => {
   return (
     <div className={styles.sidebar}>
       <h2>Records</h2>
-
       <AddRecordModal />
       <input
         style={{ width: "20vw", height: "32px", margin: "20px 0 0 0" }}
@@ -19,21 +24,24 @@ export const SideBarComponent =  ()=>{
       <div className={styles.typesContainer}>
         <p className={styles.type}>Type</p>
         <div style={{ paddingLeft: "8px", fontWeight: "300" }}>
-          <RadioGroup>
+          <RadioGroup
+            value={transactionType}
+            onChange={(e) => setTransactiontype(e.target.value)}
+          >
             <FormControlLabel
-              value="All"
+              value="all"
               control={<Radio />}
               label="All"
               className={styles.radio}
             />
             <FormControlLabel
-              value="Income"
+              value="income"
               control={<Radio />}
               label="Income"
               className={styles.radio}
             />
             <FormControlLabel
-              value="Expense"
+              value="expense"
               control={<Radio />}
               label="Expense"
               className={styles.radio}
@@ -69,12 +77,6 @@ export const SideBarComponent =  ()=>{
           </div>
         </div>
       </div>
-      {/* <div>
-            <p className={styles.type}>Amount Range</p>
-            <div>0</div>
-            <div>1000</div>
-            <div></div>
-          </div> */}
     </div>
   );
 };

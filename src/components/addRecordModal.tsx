@@ -43,6 +43,7 @@ export default function AddRecordModal() {
   const [category, setCategory] = useState("");
   const [note, setNote] = useState("");
   const [noteError, setNoteError] = useState("");
+  const [required, setRequired] = useState("");
   const handleCategory = (e: SelectChangeEvent) => {
     setCategory(e.target.value);
   };
@@ -51,7 +52,7 @@ export default function AddRecordModal() {
 
   const handleChangeAmount = (event: React.ChangeEvent<HTMLInputElement>) => {
     const amount = event.target.value;
-    if (amount === "") {
+    if (amount <= "0000") {
       setAmountError("Amount is empty.");
     } else {
       setAmountError("");
@@ -86,12 +87,12 @@ export default function AddRecordModal() {
     }
   };
   const handleAddRecord = () => {
-    // if (amount === "" || note === "") {
-    //   setRequired("Please, enter all inputs.");
-    // } else {
+    if (amount === "" || note === "") {
+      setRequired("Please, enter all inputs.");
+    } else {
       addRecord();
       handleClose()
-    // }
+    }
   };
 
   return (
@@ -145,9 +146,9 @@ export default function AddRecordModal() {
                   MenuProps={selectStyle}
                 >
                   <MenuItem value={"bills"}>Bills</MenuItem>
+                  <MenuItem value={"clothing"}>Clothing</MenuItem>
                   <MenuItem value={"food"}>Food</MenuItem>
                   <MenuItem value={"shopping"}>Shopping</MenuItem>
-                  <MenuItem value={"clothing"}>Clothing</MenuItem>
                 </Select>
               </div>
               <div>
@@ -179,6 +180,7 @@ export default function AddRecordModal() {
           >
             Add Record
           </button>
+          <div className="error">{required}</div>
         </Box>
       </Modal>
     </div>

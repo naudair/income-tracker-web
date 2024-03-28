@@ -14,10 +14,10 @@ export default function Dashboard() {
       <div
         style={{
           padding: "2.5vh 7vw",
-          backgroundColor: "rgba(243, 244, 246, 1)",
           display: "flex",
           flexDirection: "column",
           gap: "2vh",
+          height:"88vh"
         }}
       >
         <div className="cart">
