@@ -70,7 +70,7 @@ export default function AddRecordModal() {
     setNote(event.target.value);
   };
 
-  const addRecord = async () => {
+  const addTransaction = async () => {
     try {
       const response = await axios.post(
         "http://localhost:8080/create-transaction",
@@ -86,11 +86,11 @@ export default function AddRecordModal() {
       console.log(error);
     }
   };
-  const handleAddRecord = () => {
+  const handleAddTransaction = () => {
     if (amount === "" || note === "") {
       setRequired("Please, enter all inputs.");
     } else {
-      addRecord();
+      addTransaction();
       handleClose()
     }
   };
@@ -145,10 +145,10 @@ export default function AddRecordModal() {
                   onChange={handleCategory}
                   MenuProps={selectStyle}
                 >
-                  <MenuItem value={"bills"}>Bills</MenuItem>
-                  <MenuItem value={"clothing"}>Clothing</MenuItem>
-                  <MenuItem value={"food"}>Food</MenuItem>
-                  <MenuItem value={"shopping"}>Shopping</MenuItem>
+                  <MenuItem value={"Bills"}>Bills</MenuItem>
+                  <MenuItem value={"Clothing"}>Clothing</MenuItem>
+                  <MenuItem value={"Food"}>Food</MenuItem>
+                  <MenuItem value={"Shopping"}>Shopping</MenuItem>
                 </Select>
               </div>
               <div>
@@ -172,7 +172,7 @@ export default function AddRecordModal() {
           </div>
           <button
             className={styles.addBtn}
-            onClick={() => handleAddRecord()}
+            onClick={() => handleAddTransaction()}
             style={{
               backgroundColor:
                 transactionType === "expense" ? "#0166FF" : "#16A34A",

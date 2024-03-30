@@ -20,10 +20,10 @@ interface ColorMap {
 }
 
 type IconsType = {
-  bills: JSX.Element;
-  food: JSX.Element;
-  shopping: JSX.Element;
-  clothing: JSX.Element;
+  Bills: JSX.Element;
+  Food: JSX.Element;
+  Shopping: JSX.Element;
+  Clothing: JSX.Element;
   [x: string]: JSX.Element;
 };
 
@@ -37,16 +37,16 @@ const incomeExpense: ColorMap = {
 };
 
 const iconColors: ColorMap = {
-  food: "#FB8A22",
-  bills: "#16A34A",
-  shopping: "red",
-  clothing: "#6F6CF3",
+  Food: "#FB8A22",
+  Bills: "#16A34A",
+  Shopping: "red",
+  Clothing: "#6F6CF3",
 };
 const icons: IconsType = {
-  bills: <BillsIcon />,
-  food: <FoodIcon />,
-  shopping: <ShoppingIcon />,
-  clothing: <ClothingIcon />,
+  Bills: <BillsIcon />,
+  Food: <FoodIcon />,
+  Shopping: <ShoppingIcon />,
+  Clothing: <ClothingIcon />,
 };
 
 export const ListItem = ({ transaction }: { transaction: Transaction }) => {
