@@ -1,11 +1,15 @@
 /* eslint-disable max-lines */
+import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
+import { EditIcon } from "./images/editIcon";
 import styles from "@/styles/recordPage.module.css";
 import { ToggleButtonComp } from "./toggleButton";
 import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
 import axios from "axios";
 import { useState } from "react";
+import { Transaction } from "./transactionComponent";
+import { Dispatch, SetStateAction } from "react";
 
 const style = {
   position: "absolute",
@@ -22,6 +26,7 @@ const style = {
   flexDirection: "column",
   alignItems: "center",
 };
+
 const selectStyle = {
   autoFocus: false,
   PaperProps: {
@@ -34,32 +39,49 @@ const selectStyle = {
     },
   },
 };
+interface Props {
+  typeF: string;
+  amountF: number;
+  categoryF: string;
+  noteF: string;
+  id: string;
+  _id: string; // delete
+  // transaction: Transaction[];
+  setTransaction: Dispatch<SetStateAction<Transaction[]>>;
+}
 
-export default function AddRecordModal() {
+export const EditModal: React.FC<Props> = ({
+  typeF,
+  amountF,
+  categoryF,
+  noteF,
+  id,
+  // transaction,
+  setTransaction,
+}) => {
   const [open, setOpen] = useState(false);
-  const [transactionType, setTransactionType] = useState("expense");
-  const [amount, setAmount] = useState("");
-  const [amountError, setAmountError] = useState("");
-  const [category, setCategory] = useState("");
-  const [note, setNote] = useState("");
-  const [noteError, setNoteError] = useState("");
-  const [required, setRequired] = useState("");
-  const handleCategory = (e: SelectChangeEvent) => {
-    setCategory(e.target.value);
-  };
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [transactionType, setTransactionType] = useState(typeF);
+  const [amount, setAmount] = useState(amountF);
+  const [amountError, setAmountError] = useState("");
+  const [category, setCategory] = useState(categoryF);
+  const [note, setNote] = useState(noteF);
+  const [noteError, setNoteError] = useState("");
+  const [required, setRequired] = useState("");
 
   const handleChangeAmount = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const amount = event.target.value;
-    if (amount <= "0000") {
+    const amount = parseFloat(event.target.value);
+    if (!(amount)) {
       setAmountError("Amount is empty.");
     } else {
       setAmountError("");
     }
-    setAmount(event.target.value);
+    setAmount(amount);
   };
-
+  const handleCategory = (e: SelectChangeEvent) => {
+    setCategory(e.target.value);
+  };
   const handleChangeNote = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const note = event.target.value;
     if (note === "") {
@@ -67,39 +89,48 @@ export default function AddRecordModal() {
     } else {
       setNoteError("");
     }
-    setNote(event.target.value);
+    setNote(note);
   };
 
-  const addTransaction = async () => {
+  const updateTransaction = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8080/create-transaction",
+        "http://localhost:8080/update-transaction",
         {
-          category,
-          amount,
-          note,
+          id,
           transactionType,
+          amount,
+          category,
+          note
         }
       );
-      console.log(response);
+      console.log(response)
+      const updatedData = response.data.map((data: Props) => {
+        if (data._id === response.data._id) {
+          return { ...data, ...response.data };
+        } else {
+          return data;
+        }
+      });
+      setTransaction(updatedData);
     } catch (error) {
       console.log(error);
     }
   };
-  const handleAddTransaction = () => {
-    if (amount === "" || note === "") {
+  const handleUpdateTransaction = () => {
+    if (amount < 10 || note === "") {
       setRequired("Please, enter all inputs.");
     } else {
-      addTransaction();
-      handleClose()
+      updateTransaction();
+      handleClose();
     }
   };
 
   return (
     <div>
-      <button className={styles.button} onClick={handleOpen}>
-        + Add
-      </button>
+      <div onClick={handleOpen}>
+        <EditIcon />
+      </div>
       <Modal
         open={open}
         onClose={handleClose}
@@ -108,7 +139,7 @@ export default function AddRecordModal() {
       >
         <Box sx={style}>
           <div className={styles.modalHead}>
-            <span>Add Record</span>
+            <span>Edit Record</span>
             <span onClick={handleClose}>×</span>
           </div>
           <div style={{ display: "flex" }}>
@@ -151,13 +182,6 @@ export default function AddRecordModal() {
                   <MenuItem value={"Shopping"}>Shopping</MenuItem>
                 </Select>
               </div>
-              <div>
-                Date
-                <input
-                  style={{ width: "355px", marginTop: "8px" }}
-                  type="date"
-                />
-              </div>
             </div>
             <div style={{ padding: "30px 20px 20px 20px" }}>
               Note
@@ -172,17 +196,17 @@ export default function AddRecordModal() {
           </div>
           <button
             className={styles.addBtn}
-            onClick={() => handleAddTransaction()}
+            onClick={() => handleUpdateTransaction()}
             style={{
               backgroundColor:
                 transactionType === "expense" ? "#0166FF" : "#16A34A",
             }}
           >
-            Add Record
+            Edit Record
           </button>
           <div className="error">{required}</div>
         </Box>
       </Modal>
     </div>
   );
-}
+};

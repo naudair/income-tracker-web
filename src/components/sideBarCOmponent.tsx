@@ -3,20 +3,19 @@ import { RightArrow } from "@/components/images/rightArrow";
 import { SeeIcon } from "@/components/images/seeIcon";
 import styles from "@/styles/recordPage.module.css";
 import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
-import AddRecordModal from "./addRecordModal";
 import { categoryData } from "@/utils/data";
+import AddTransactionModal from "./addTransactionModal";
 
 interface Props {
   transactionType: string;
   setTransactiontype: (type: string) => void;
 }
 
-
 export const SideBarComponent : React.FC<Props> = ({ transactionType, setTransactiontype }) => {
   return (
     <div className={styles.sidebar}>
       <h2>Records</h2>
-      <AddRecordModal />
+      <AddTransactionModal/>
       <input
         style={{ width: "20vw", height: "32px", margin: "20px 0 0 0" }}
         placeholder="Search"

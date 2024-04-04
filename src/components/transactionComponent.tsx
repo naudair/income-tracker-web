@@ -4,9 +4,10 @@ import { ClothingIcon } from "./images/clothingIcon";
 import { FoodIcon } from "./images/foodIcon";
 import { ShoppingIcon } from "./images/shoppingIcon";
 import { DeleteIcon } from "./images/deleteIcon";
-import { EditIcon } from "./images/editIcon";
 import styles from "@/styles/recordPage.module.css";
 import axios from "axios";
+import { EditModal } from "./editTransactionModal";
+import { Dispatch, SetStateAction } from "react";
 
 export type Transaction = {
   amount: number;
@@ -19,6 +20,10 @@ export type Transaction = {
   __v: number;
   _id: string;
 };
+interface Props {
+  transaction: Transaction;
+  setTransaction: Dispatch<SetStateAction<Transaction[]>>;
+}
 interface ColorMap {
   [key: string]: string;
 }
@@ -50,34 +55,21 @@ const icons: IconsType = {
   Clothing: <ClothingIcon />,
 };
 
-export const Transaction = ({ transaction }: { transaction: Transaction }) => {
+export const Transaction : React.FC<Props> = ({ transaction, setTransaction }) => {
   const day = dayjs(transaction.createdAt).format("YY-MM-DD");
   const time = dayjs(transaction.createdAt).format("hh:mm");
 
   const deleteTransaction = async () => {
-    const id = transaction._id
+    const id = transaction._id;
     try {
-      const response = await axios.delete(`http://localhost:8080/delete-transaction/${id}`  );
+      const response = await axios.delete(
+        `http://localhost:8080/delete-transaction/${id}`
+      );
       console.log(response);
     } catch (error) {
       console.log(error);
     }
   };
-
-  const updateTransction = async () =>{
-    const updated =   {
-      category:'food',
-      amount:900000,
-      note:'uurchilluuuuu',
-    }
-    await axios.post(
-      "http://localhost:8080/update-transaction",
-    {
-      id: transaction._id,
-      transaction: updated
-    }
-    );
-  }
 
   return (
     <div className={styles.transactionComponent}>
@@ -101,14 +93,19 @@ export const Transaction = ({ transaction }: { transaction: Transaction }) => {
       </div>
       <div className={styles.transactionRight}>
         <div style={{ display: "flex", gap: "25px" }}>
-          <div onClick={()=> deleteTransaction()}>
-
-          <DeleteIcon />
+          <div onClick={() => deleteTransaction()}>
+            <DeleteIcon />
           </div>
-          <div onClick={()=> updateTransction()}>
-          <EditIcon />
-</div>
-    
+          <EditModal
+            typeF={transaction.transactionType}
+            amountF={transaction.amount}
+            categoryF={transaction.category}
+            noteF={transaction.note}
+            id={transaction._id}
+            _id={transaction._id} // delete
+            // transaction={transaction}
+            setTransaction={setTransaction}
+          />
         </div>
         <p
           style={{

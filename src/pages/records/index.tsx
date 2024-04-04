@@ -9,8 +9,9 @@ import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 
 export default function RecordPage() {
-  const [transaction, setTransaction] = useState<Transaction[] | never[]>([]);
+  const [transaction, setTransaction] = useState<Transaction[]>([]);
   const [transactionType, setTransactiontype] = useState("all");
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get("http://localhost:8080/get-transaction");
@@ -90,7 +91,7 @@ export default function RecordPage() {
               <div className={styles.records}>
                 {todaysdata.length > 0 &&
                   filteredByTypeTodaysData.map((transaction, index) => (
-                    <Transaction key={index} transaction={transaction} />
+                    <Transaction key={index} transaction={transaction} setTransaction={setTransaction}/>
                   ))}
               </div>
             </div>
@@ -98,7 +99,7 @@ export default function RecordPage() {
               <p className={styles.type}>History</p>
               <div className={styles.records}>
                 {filteredByTypeNotTodaysData.map((transaction, index) => (
-                  <Transaction key={index} transaction={transaction} />
+                  <Transaction key={index} transaction={transaction} setTransaction={setTransaction}/>
                 ))}
               </div>
             </div>
