@@ -52,8 +52,7 @@ export default function Signup() {
     setRepassword(event.target.value);
   };
   const signUpUser = async () => {
-    await axios
-      .post("https://income-tracker-service-5w2z.onrender.com/signup", {
+    await axios.post("https://income-tracker-service-5w2z.onrender.com/signup", {
         name: username,
         email: email,
         password: password,
@@ -122,7 +121,7 @@ export default function Signup() {
           <div className="error">{required}</div>
         </div>
         <div style={{ display: "flex", gap: "15px", padding: "10px" }}>
-          <p>Already have account?</p>
+          <p>Already have an account?</p>
           <p className="signup" onClick={() => router.push("/login")}>
             Log In
           </p>

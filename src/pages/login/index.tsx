@@ -39,7 +39,7 @@ export default function Login() {
       })
       .then((res: unknown) => {
         console.log(res);
-        router.push("/");
+        router.push("/dashboard");
       })
       .catch((err: unknown) => {
         console.log(err);
@@ -84,7 +84,7 @@ export default function Login() {
           <div className="error">{required}</div>
         </div>
         <div style={{ display: "flex", gap: "15px", padding: "10px" }}>
-          <p>Dont have account?</p>
+          <p>Dont have an account?</p>
           <p className="signup" onClick={() => router.push("/signup")}>
             Sign Up
           </p>

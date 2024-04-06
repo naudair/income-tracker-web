@@ -18,7 +18,8 @@ export default function Home() {
       <div>
         <GeldIcon />
       </div>
-      <h1 style={{color:"#"}}>WELCOME</h1>
+      <h1>WELCOME</h1>
+      <span style={{color:"#0166ff"}}>Do you have an account?</span>
       <div>
         <button className="homebtn" onClick={() => router.push("/login")}>
           LOGIN
