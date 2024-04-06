@@ -14,7 +14,7 @@ export default function RecordPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get("http://localhost:8080/get-transaction");
+      const response = await axios.get("https://income-tracker-service-5w2z.onrender.com/get-transaction");
       setTransaction(response.data);
     };
     fetchData();
@@ -39,7 +39,6 @@ export default function RecordPage() {
       : notTodaysdata.filter(
           (transaction) => transaction.transactionType === transactionType
         );
-  // console.log(filteredByType);
   return (
     <div>
       <Head />

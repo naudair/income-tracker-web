@@ -55,7 +55,10 @@ const icons: IconsType = {
   Clothing: <ClothingIcon />,
 };
 
-export const Transaction : React.FC<Props> = ({ transaction, setTransaction }) => {
+export const Transaction: React.FC<Props> = ({
+  transaction,
+  setTransaction,
+}) => {
   const day = dayjs(transaction.createdAt).format("YY-MM-DD");
   const time = dayjs(transaction.createdAt).format("hh:mm");
 
@@ -63,9 +66,13 @@ export const Transaction : React.FC<Props> = ({ transaction, setTransaction }) =
     const id = transaction._id;
     try {
       const response = await axios.delete(
-        `http://localhost:8080/delete-transaction/${id}`
+        `https://income-tracker-service-5w2z.onrender.com/delete-transaction/${id}`
       );
       console.log(response);
+      const filteredData = response.data.filter(
+        (transaction: { _id: string; }) => transaction._id !== response.data
+      );
+      setTransaction(filteredData)
     } catch (error) {
       console.log(error);
     }
@@ -92,29 +99,29 @@ export const Transaction : React.FC<Props> = ({ transaction, setTransaction }) =
         </div>
       </div>
       <div className={styles.transactionRight}>
+        <p
+          style={{
+            width: "80px",
+            textAlign: "end",
+            color: amountColors[transaction.transactionType],
+          }}
+        >
+          {incomeExpense[transaction.transactionType]} {transaction.amount}₮
+        </p>
         <div style={{ display: "flex", gap: "25px" }}>
-          <div onClick={() => deleteTransaction()}>
-            <DeleteIcon />
-          </div>
           <EditModal
             typeF={transaction.transactionType}
             amountF={transaction.amount}
             categoryF={transaction.category}
             noteF={transaction.note}
             id={transaction._id}
-            _id={transaction._id} // delete
-            // transaction={transaction}
+            _id={transaction._id}
             setTransaction={setTransaction}
           />
+          <div onClick={() => deleteTransaction()}>
+            <DeleteIcon />
+          </div>
         </div>
-        <p
-          style={{
-            lineHeight: "8px",
-            color: amountColors[transaction.transactionType],
-          }}
-        >
-          {incomeExpense[transaction.transactionType]} {transaction.amount}₮
-        </p>
       </div>
     </div>
   );

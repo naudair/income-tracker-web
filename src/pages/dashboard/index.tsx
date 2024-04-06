@@ -3,11 +3,11 @@ import { downIcon } from "@/components/images/downIcon";
 import BlueCartComponent from "@/components/BlueCartComponent";
 import { CartDetail } from "@/components/IncomeExpenceComponent";
 import DoughnutChart from "@/components/doughnutChartComponent";
-import LastRecords from "@/components/lastRecordsComponent";
+import LastRecords from "@/components/lastRecords";
 import Barchart from "@/components/barchartComponent";
 import Head from "@/components/headComponent";
 
-export default function Dashboard() {
+export default function Index() {
   return (
     <div>
       <Head/>

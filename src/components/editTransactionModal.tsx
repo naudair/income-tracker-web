@@ -26,7 +26,6 @@ const style = {
   flexDirection: "column",
   alignItems: "center",
 };
-
 const selectStyle = {
   autoFocus: false,
   PaperProps: {
@@ -45,8 +44,7 @@ interface Props {
   categoryF: string;
   noteF: string;
   id: string;
-  _id: string; // delete
-  // transaction: Transaction[];
+  _id: string;
   setTransaction: Dispatch<SetStateAction<Transaction[]>>;
 }
 
@@ -56,7 +54,6 @@ export const EditModal: React.FC<Props> = ({
   categoryF,
   noteF,
   id,
-  // transaction,
   setTransaction,
 }) => {
   const [open, setOpen] = useState(false);
@@ -95,7 +92,7 @@ export const EditModal: React.FC<Props> = ({
   const updateTransaction = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8080/update-transaction",
+        "https://income-tracker-service-5w2z.onrender.com/update-transaction",
         {
           id,
           transactionType,

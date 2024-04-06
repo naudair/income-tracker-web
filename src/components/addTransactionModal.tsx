@@ -71,7 +71,7 @@ export default function AddTransactionModal() {
   const addTransaction = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8080/create-transaction",
+        "https://income-tracker-service-5w2z.onrender.com/create-transaction",
         {
           category,
           amount,

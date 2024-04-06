@@ -1,6 +1,5 @@
 .sidebar {
   width: 20vw;
-  /* height: 900px; */
   height: 85vh;
   padding: 10px 16px;
   border-radius: 12px;
@@ -58,14 +57,12 @@
   border-radius: 8px;
   border: none;
   background-color: #f3f4f6;
-  /* padding: 10px; */
   font-size: 18px;
   display: flex;
 }
 .billicon {
   display: flex;
   gap: 5px;
-  /* padding-left: 10px;s */
 }
 .foodicon {
   display: flex;

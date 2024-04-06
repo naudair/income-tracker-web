@@ -14,7 +14,6 @@ export default function Signup() {
   const [usernameError, setUsernameError] = useState("");
   const [repasswordError, setRepasswordError] = useState("");
   const [required, setRequired] = useState("");
-  // const [passwordErro, setPasswordErro] = useState("");
 
   const handleChangeUsername = (event: React.ChangeEvent<HTMLInputElement>) => {
     const username = event.target.value;
@@ -41,11 +40,6 @@ export default function Signup() {
     } else {
       setPasswordError("");
     }
-    // if (!password.includes(1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9 || 0)) {
-    //   setPasswordErro("Password must be a combination of letters and numbers.");
-    // } else {
-    //   setPasswordErro("");
-    // }
     setPassword(event.target.value);
   };
   const handleChangeRepass = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,7 +53,7 @@ export default function Signup() {
   };
   const signUpUser = async () => {
     await axios
-      .post("http://localhost:8080/signup", {
+      .post("https://income-tracker-service-5w2z.onrender.com/signup", {
         name: username,
         email: email,
         password: password,
@@ -117,7 +111,6 @@ export default function Signup() {
             onChange={handleChangePassword}
           />
           <div className="error">{passwordError}</div>
-          {/* <div className="error">{passwordErro}</div> */}
           <input
             placeholder="Repassword"
             value={repassword}
