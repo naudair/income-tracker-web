@@ -45,6 +45,7 @@ interface Props {
   noteF: string;
   id: string;
   _id: string;
+  transaction: Transaction;
   setTransaction: Dispatch<SetStateAction<Transaction[]>>;
 }
 
@@ -54,7 +55,6 @@ export const EditModal: React.FC<Props> = ({
   categoryF,
   noteF,
   id,
-  setTransaction,
 }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -69,7 +69,7 @@ export const EditModal: React.FC<Props> = ({
 
   const handleChangeAmount = (event: React.ChangeEvent<HTMLInputElement>) => {
     const amount = parseFloat(event.target.value);
-    if (!(amount)) {
+    if (!amount) {
       setAmountError("Amount is empty.");
     } else {
       setAmountError("");
@@ -98,18 +98,10 @@ export const EditModal: React.FC<Props> = ({
           transactionType,
           amount,
           category,
-          note
+          note,
         }
       );
-      console.log(response)
-      const updatedData = response.data.map((data: Props) => {
-        if (data._id === response.data._id) {
-          return { ...data, ...response.data };
-        } else {
-          return data;
-        }
-      });
-      setTransaction(updatedData);
+      console.log(response);
     } catch (error) {
       console.log(error);
     }

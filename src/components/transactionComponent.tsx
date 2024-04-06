@@ -114,6 +114,7 @@ export const Transaction: React.FC<Props> = ({
             amountF={transaction.amount}
             categoryF={transaction.category}
             noteF={transaction.note}
+            transaction={transaction}
             id={transaction._id}
             _id={transaction._id}
             setTransaction={setTransaction}
