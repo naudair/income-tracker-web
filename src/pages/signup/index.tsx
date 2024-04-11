@@ -1,4 +1,4 @@
-import { GeldIcon } from "@/components/images/geldicon";
+import { GeldIcon } from "../../components/images/geldicon";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { useState } from "react";

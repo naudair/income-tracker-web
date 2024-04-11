@@ -3,7 +3,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { EditIcon } from "./images/editIcon";
-import styles from "@/styles/recordPage.module.css";
+import styles from "../styles/recordPage.module.css";
 import { ToggleButtonComp } from "./toggleButton";
 import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
 import axios from "axios";

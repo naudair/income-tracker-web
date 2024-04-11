@@ -1,6 +1,6 @@
-import { CashIcon } from "@/components/images/cashIcon";
-import { GeldIcon } from "@/components/images/geldicon";
-import Stepper2 from "@/components/stepper2Component";
+import { CashIcon } from "../../components/images/cashIcon";
+import { GeldIcon } from "../../components/images/geldicon";
+import Stepper2 from "../../components/stepper2Component";
 import { useRouter } from "next/router";
 
 export default function SignupSecond() {

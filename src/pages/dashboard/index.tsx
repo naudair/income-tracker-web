@@ -1,23 +1,52 @@
-import { upIcon } from "@/components/images/upIcon";
-import { downIcon } from "@/components/images/downIcon";
-import BlueCartComponent from "@/components/BlueCartComponent";
-import { CartDetail } from "@/components/IncomeExpenceComponent";
-import DoughnutChart from "@/components/doughnutChartComponent";
-import LastRecords from "@/components/lastRecords";
-import Barchart from "@/components/barchartComponent";
-import Head from "@/components/headComponent";
+import { upIcon } from "../../components/images/upIcon";
+import { downIcon } from "../..//components/images/downIcon";
+import BlueCartComponent from "../../components/BlueCartComponent";
+import { CartDetail } from "../../components/IncomeExpenceComponent";
+import DoughnutChart from "../../components/doughnutChartComponent";
+import LastRecords from "../../components/lastRecords";
+import Barchart from "../../components/barchartComponent";
+import Head from "../../components/headComponent";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Index() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const isUserLoggedIn = () => {
+      const isUser = localStorage.getItem("user");
+      if (!isUser) router.replace("/login");
+    };
+    isUserLoggedIn();
+  }, [router]);
+
+  const [transaction, setTransaction] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(
+        "https://income-tracker-service-5w2z.onrender.com/get-transaction"
+      );
+      const id = localStorage.getItem("userId")
+      const userData = response.data.filter((transaction: { userID: string | null; }) => {
+        return transaction.userID === id
+      })
+      setTransaction(userData);
+      
+    };
+    fetchData();
+  }, []);
+
   return (
     <div>
-      <Head/>
+      <Head />
       <div
         style={{
           padding: "2.5vh 7vw",
           display: "flex",
           flexDirection: "column",
           gap: "2vh",
-          height:"88vh"
+          height: "88vh",
         }}
       >
         <div className="cart">
@@ -46,7 +75,7 @@ export default function Index() {
           </div>
         </div>
         <div>
-          <LastRecords />
+          <LastRecords transaction={transaction}/>
         </div>
       </div>
     </div>

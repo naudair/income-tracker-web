@@ -1,21 +1,38 @@
-import Head from "@/components/headComponent";
-import { LeftButton } from "@/components/images/leftButton";
-import { RightButton } from "@/components/images/rightButton";
-import { SideBarComponent } from "@/components/SideBarComponent";
-import { Transaction } from "@/components/transactionComponent";
-import styles from "@/styles/recordPage.module.css";
+import Head from "../../components/headComponent";
+import { LeftButton } from "../../components/images/leftButton";
+import { RightButton } from "../../components/images/rightButton";
+import { SideBarComponent } from "../../components/SideBarComponent"
+import { Transaction } from "../../components/transactionComponent";
+import styles from "../../styles/recordPage.module.css"
 import axios from "axios";
 import dayjs from "dayjs";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 export default function RecordPage() {
+  const router = useRouter();
   const [transaction, setTransaction] = useState<Transaction[]>([]);
   const [transactionType, setTransactiontype] = useState("all");
 
   useEffect(() => {
+    const isUserLoggedIn = () => {
+      const isUser = localStorage.getItem("user");
+      if (!isUser) router.replace("/login");
+    };
+    isUserLoggedIn();
+  }, [router]);
+
+  useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get("https://income-tracker-service-5w2z.onrender.com/get-transaction");
-      setTransaction(response.data);
+      const response = await axios.get(
+        "https://income-tracker-service-5w2z.onrender.com/get-transaction"
+      );
+      const id = localStorage.getItem("userId")
+      const userData = response.data.filter((transaction: { userID: string | null; }) => {
+        return transaction.userID === id
+      })
+      setTransaction(userData);
+      
     };
     fetchData();
   }, []);
@@ -90,7 +107,11 @@ export default function RecordPage() {
               <div className={styles.records}>
                 {todaysdata.length > 0 &&
                   filteredByTypeTodaysData.map((transaction, index) => (
-                    <Transaction key={index} transaction={transaction} setTransaction={setTransaction}/>
+                    <Transaction
+                      key={index}
+                      transaction={transaction}
+                      setTransaction={setTransaction}
+                    />
                   ))}
               </div>
             </div>
@@ -98,7 +119,11 @@ export default function RecordPage() {
               <p className={styles.type}>History</p>
               <div className={styles.records}>
                 {filteredByTypeNotTodaysData.map((transaction, index) => (
-                  <Transaction key={index} transaction={transaction} setTransaction={setTransaction}/>
+                  <Transaction
+                    key={index}
+                    transaction={transaction}
+                    setTransaction={setTransaction}
+                  />
                 ))}
               </div>
             </div>

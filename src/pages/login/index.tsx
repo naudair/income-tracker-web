@@ -1,13 +1,12 @@
-import { GeldIcon } from "@/components/images/geldicon";
+import { GeldIcon } from "../../components/images/geldicon";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-export default function Login() {
+export default function Login(){
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [required, setRequired] = useState("");
@@ -37,8 +36,10 @@ export default function Login() {
         email: email,
         password: password,
       })
-      .then((res: unknown) => {
+      .then((res) => {
         console.log(res);
+        localStorage.setItem('user', true.toString())
+        localStorage.setItem('userId', res.data.userId)
         router.push("/dashboard");
       })
       .catch((err: unknown) => {

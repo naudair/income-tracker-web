@@ -1,6 +1,6 @@
-import { DoneIcon } from "@/components/images/doneIcon";
-import { GeldIcon } from "@/components/images/geldicon";
-import Stepper3 from "@/components/stepper3component";
+import { DoneIcon } from "../../components/images/doneIcon";
+import { GeldIcon } from "../../components/images/geldicon";
+import Stepper3 from "../../components/stepper3component";
 import { useRouter } from "next/router";
 // import { HorizontalNonLinearStepper }
 

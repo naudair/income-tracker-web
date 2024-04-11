@@ -1,9 +1,9 @@
-import { AddIcon } from "@/components/images/addIcon";
-import { RightArrow } from "@/components/images/rightArrow";
-import { SeeIcon } from "@/components/images/seeIcon";
-import styles from "@/styles/recordPage.module.css";
+import { AddIcon } from "../components/images/addIcon";
+import { RightArrow } from "../components/images/rightArrow";
+import { SeeIcon } from "../components/images/seeIcon";
+import styles from "../styles/recordPage.module.css";
 import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
-import { categoryData } from "@/utils/data";
+import { categoryData } from "../utils/data";
 import AddTransactionModal from "./addTransactionModal";
 
 interface Props {

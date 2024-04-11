@@ -1,4 +1,4 @@
-import { Icon } from "@/components/images/icon";
+import { Icon } from "../components/images/icon"
 import { Avatar } from "@mui/material";
 import { useRouter } from "next/router";
 import AddTransactionModal from "./addTransactionModal";

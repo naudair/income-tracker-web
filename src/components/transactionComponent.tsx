@@ -4,7 +4,7 @@ import { ClothingIcon } from "./images/clothingIcon";
 import { FoodIcon } from "./images/foodIcon";
 import { ShoppingIcon } from "./images/shoppingIcon";
 import { DeleteIcon } from "./images/deleteIcon";
-import styles from "@/styles/recordPage.module.css";
+import styles from "../styles/recordPage.module.css";
 import axios from "axios";
 import { EditModal } from "./editTransactionModal";
 import { Dispatch, SetStateAction } from "react";

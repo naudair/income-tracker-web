@@ -1,21 +1,11 @@
-import axios from "axios";
 import style from "../styles/lastRecord.module.css";
-import { useEffect, useState } from "react";
 import { ListItem } from "./listItem";
 import { useRouter } from "next/router";
+import { Transaction } from "./transactionComponent";
 
-export default function LastRecords() {
+export default function LastRecords({transaction}:{transaction: Transaction[]}) {
   const router = useRouter();
-  const [transaction, setTransaction] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(
-        "https://income-tracker-service-5w2z.onrender.com/get-transaction"
-      );
-      setTransaction(response.data);
-    };
-    fetchData();
-  }, []);
+
 
   return (
     <div className={style.lastRecord} onClick={() => router.push("/records")}>

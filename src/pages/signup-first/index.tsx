@@ -1,7 +1,7 @@
-import { CurrencyIcon } from "@/components/images/currencyIcon";
-import { GeldIcon } from "@/components/images/geldicon";
-import Stepper1 from "@/components/stepper1Component";
-import { currencyData } from "@/utils/data";
+import { CurrencyIcon } from "../../components/images/currencyIcon";
+import { GeldIcon } from "../../components/images/geldicon";
+import Stepper1 from "../../components/stepper1Component";
+import { currencyData } from "../../utils/data";
 import { useRouter } from "next/router";
 
 export default function SignupFirst() {

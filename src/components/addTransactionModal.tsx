@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import styles from "@/styles/recordPage.module.css";
+import styles from "../styles/recordPage.module.css";
 import { ToggleButtonComp } from "./toggleButton";
 import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
 import axios from "axios";
@@ -69,10 +69,12 @@ export default function AddTransactionModal() {
     setNote(event.target.value);
   };
   const addTransaction = async () => {
+    const userID = localStorage.getItem('userId')
     try {
       const response = await axios.post(
         "https://income-tracker-service-5w2z.onrender.com/create-transaction",
         {
+          userID,
           category,
           amount,
           note,
