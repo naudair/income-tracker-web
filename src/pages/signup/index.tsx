@@ -52,18 +52,19 @@ export default function Signup() {
     setRepassword(event.target.value);
   };
   const signUpUser = async () => {
-    await axios.post("https://income-tracker-service-5w2z.onrender.com/signup", {
+    await axios
+      .post("https://income-tracker-service-5w2z.onrender.com/signup", {
         name: username,
         email: email,
         password: password,
         repassword: repassword,
       })
-      .then((res: unknown) => {
+      .then((res) => {
         console.log(res);
-        router.push("/signup-first");
+        if (res.data.message === "created") router.push("/signup-first");
       })
-      .catch((err: unknown) => {
-        console.log(err);
+      .catch((err) => {
+        alert(err.response.data.message)
       });
   };
   const handleSignUp = () => {

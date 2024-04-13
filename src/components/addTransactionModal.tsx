@@ -92,6 +92,7 @@ export default function AddTransactionModal() {
     } else {
       addTransaction();
       handleClose();
+      alert("Transaction succesfully added. Please, reload the page.")
     }
   };
 

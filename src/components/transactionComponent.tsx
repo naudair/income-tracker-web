@@ -76,6 +76,7 @@ export const Transaction: React.FC<Props> = ({
     } catch (error) {
       console.log(error);
     }
+    alert("Transaction succesfully deleted. Please, reload the page.")
   };
 
   return (

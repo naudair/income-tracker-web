@@ -3,7 +3,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-export default function Login(){
+export default function Login() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -38,12 +38,12 @@ export default function Login(){
       })
       .then((res) => {
         console.log(res);
-        localStorage.setItem('user', true.toString())
-        localStorage.setItem('userId', res.data.userId)
+        localStorage.setItem("user", true.toString());
+        localStorage.setItem("userId", res.data.user._id);
         router.push("/dashboard");
       })
-      .catch((err: unknown) => {
-        console.log(err);
+      .catch((err) => {
+        alert(err.response.data.message)
       });
   };
 

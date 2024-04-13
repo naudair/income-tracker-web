@@ -3,6 +3,7 @@ import { downIcon } from "../..//components/images/downIcon";
 import BlueCartComponent from "../../components/BlueCartComponent";
 import { CartDetail } from "../../components/IncomeExpenceComponent";
 import DoughnutChart from "../../components/doughnutChartComponent";
+// import { DoughnutChart } from "@/components/dounghnutComp";
 import LastRecords from "../../components/lastRecords";
 import Barchart from "../../components/barchartComponent";
 import Head from "../../components/headComponent";
@@ -12,6 +13,7 @@ import axios from "axios";
 
 export default function Index() {
   const router = useRouter();
+  const [transaction, setTransaction] = useState([]);
 
   useEffect(() => {
     const isUserLoggedIn = () => {
@@ -21,7 +23,6 @@ export default function Index() {
     isUserLoggedIn();
   }, [router]);
 
-  const [transaction, setTransaction] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
@@ -71,7 +72,7 @@ export default function Index() {
             <Barchart />
           </div>
           <div>
-            <DoughnutChart />
+            <DoughnutChart transaction={transaction} label={""}/>
           </div>
         </div>
         <div>

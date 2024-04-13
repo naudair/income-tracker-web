@@ -29,7 +29,7 @@ export default function SignupThird() {
         </h4>
         <button
           style={{ width: "390px" }}
-          onClick={() => router.push("/dashboard")}
+          onClick={() => router.push("/login")}
         >
           Go to Dashboard
         </button>

@@ -50,3 +50,20 @@ export const categoryData = [
   "Income",
   "Others",
 ];
+
+export const colors = [
+  "#1C64F2",
+  "#E74694",
+  "#FDBA8C",
+  `#16BDCA`,
+  `#F2901C`,
+  `#84CC16`,
+  `#FF4545`,
+  "#1C64F2",
+  "#E74694",
+  "#FDBA8C",
+  `#16BDCA`,
+  `#F2901C`,
+  `#84CC16`,
+  `#FF4545`,
+];

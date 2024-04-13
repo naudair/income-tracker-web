@@ -112,6 +112,7 @@ export const EditModal: React.FC<Props> = ({
     } else {
       updateTransaction();
       handleClose();
+      alert("Transaction succesfully edited. Please, reload the page.")
     }
   };
 
