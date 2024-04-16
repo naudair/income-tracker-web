@@ -67,3 +67,12 @@ export const colors = [
   `#84CC16`,
   `#FF4545`,
 ];
+ export const labels = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+];

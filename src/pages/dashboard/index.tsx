@@ -4,7 +4,7 @@ import BlueCartComponent from "../../components/BlueCartComponent";
 import { CartDetail } from "../../components/IncomeExpenceComponent";
 import DoughnutChart from "../../components/doughnutChartComponent";
 // import { DoughnutChart } from "@/components/dounghnutComp";
-import LastRecords from "../../components/lastRecords";
+import LastRecords from "../../components/LastRecords";
 import Barchart from "../../components/barchartComponent";
 import Head from "../../components/headComponent";
 import { useRouter } from "next/router";
@@ -28,12 +28,13 @@ export default function Index() {
       const response = await axios.get(
         "https://income-tracker-service-5w2z.onrender.com/get-transaction"
       );
-      const id = localStorage.getItem("userId")
-      const userData = response.data.filter((transaction: { userID: string | null; }) => {
-        return transaction.userID === id
-      })
+      const id = localStorage.getItem("userId");
+      const userData = response.data.filter(
+        (transaction: { userID: string | null }) => {
+          return transaction.userID === id;
+        }
+      );
       setTransaction(userData);
-      
     };
     fetchData();
   }, []);
@@ -53,15 +54,17 @@ export default function Index() {
         <div className="cart">
           <BlueCartComponent />
           <CartDetail
+            transaction={transaction}
             title="Total Income"
-            amount="1 200 000₮"
+            type="Income"
             desc="Your Income Amount"
             icon={upIcon()}
             status="32% from last month"
           />
           <CartDetail
+            transaction={transaction}
             title="Total Expense"
-            amount="- 1 200 000₮"
+            type="Expense"
             desc=" Your Expence Amount"
             icon={downIcon()}
             status="32% from last month"
@@ -72,11 +75,11 @@ export default function Index() {
             <Barchart />
           </div>
           <div>
-            <DoughnutChart transaction={transaction} label={""}/>
+            <DoughnutChart transaction={transaction} label={""} />
           </div>
         </div>
         <div>
-          <LastRecords transaction={transaction}/>
+          <LastRecords transaction={transaction} />
         </div>
       </div>
     </div>

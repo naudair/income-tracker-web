@@ -10,6 +10,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import { labels } from "@/utils/data";
 
 ChartJS.register(
   CategoryScale,
@@ -33,15 +34,6 @@ interface ChartData {
 }
 
 const Barchart: React.FC<BarchartProps> = () => {
-  const labels = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-  ];
   const data: ChartData = {
     labels,
     datasets: [

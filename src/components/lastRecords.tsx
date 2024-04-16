@@ -1,5 +1,5 @@
 import style from "../styles/lastRecord.module.css";
-import { ListItem } from "./listItem";
+import { ListItem } from "./ListItem";
 import { useRouter } from "next/router";
 import { Transaction } from "./transactionComponent";
 
