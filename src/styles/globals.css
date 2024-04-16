@@ -147,7 +147,7 @@ button {
 .cart-status {
   display: flex;
   height: 60px;
-  align-items: end;
+  align-items: flex-end;
   font-size: 20px;
   padding-left: 24px;
   gap: 8px;

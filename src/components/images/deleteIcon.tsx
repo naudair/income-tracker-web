@@ -8,7 +8,7 @@ export const DeleteIcon = () => {
     >
       <g
         fill="#0166ff"
-        fill-rule="nonzero"
+        fillRule="nonzero"
         stroke="none"
         stroke-width="1"
         stroke-linecap="butt"
