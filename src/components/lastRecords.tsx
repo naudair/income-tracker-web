@@ -5,8 +5,6 @@ import { Transaction } from "./transactionComponent";
 
 export default function LastRecords({transaction}:{transaction: Transaction[]}) {
   const router = useRouter();
-
-
   return (
     <div className={style.lastRecord} onClick={() => router.push("/records")}>
       <div className={style.head}>Last Records</div>
