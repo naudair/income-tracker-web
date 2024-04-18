@@ -1,4 +1,4 @@
-import style from "../styles/LastRecord.module.css";
+import style from "../styles/lastRecord.module.css";
 import { BillsIcon } from "./images/billsIcon";
 import { ClothingIcon } from "./images/clothingIcon";
 import { FoodIcon } from "./images/foodIcon";
