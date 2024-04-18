@@ -1,9 +1,7 @@
 import Head from "../../components/headComponent";
-import { LeftButton } from "../../components/images/leftButton";
-import { RightButton } from "../../components/images/rightButton";
-import { SideBarComponent } from "../../components/SideBarComponent"
+import { SideBarComponent } from "../../components/SideBarComponent";
 import { Transaction } from "../../components/transactionComponent";
-import styles from "../../styles/recordPage.module.css"
+import styles from "../../styles/recordPage.module.css";
 import axios from "axios";
 import dayjs from "dayjs";
 import { useRouter } from "next/router";
@@ -27,12 +25,13 @@ export default function RecordPage() {
       const response = await axios.get(
         "https://income-tracker-service-5w2z.onrender.com/get-transaction"
       );
-      const id = localStorage.getItem("userId")
-      const userData = response.data.filter((transaction: { userID: string | null; }) => {
-        return transaction.userID === id
-      })
+      const id = localStorage.getItem("userId");
+      const userData = response.data.filter(
+        (transaction: { userID: string | null }) => {
+          return transaction.userID === id;
+        }
+      );
       setTransaction(userData);
-      
     };
     fetchData();
   }, []);
@@ -81,27 +80,6 @@ export default function RecordPage() {
             setTransactiontype={setTransactiontype}
           />
           <div style={{ width: "100%" }}>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                width: "100%",
-              }}
-            >
-              <div style={{ display: "flex", gap: "15px" }}>
-                <div>
-                  <LeftButton />
-                </div>
-                <p>Last 30 days</p>
-                <div>
-                  <RightButton />
-                </div>
-              </div>
-              <select className={styles.select1}>
-                <option>Newest first</option>
-                <option>Oldest first</option>
-              </select>
-            </div>
             <div>
               <p className={styles.type}>Today</p>
               <div className={styles.records}>

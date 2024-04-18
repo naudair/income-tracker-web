@@ -1,4 +1,3 @@
-import { AddIcon } from "../components/images/addIcon";
 import { RightArrow } from "../components/images/rightArrow";
 import { SeeIcon } from "../components/images/seeIcon";
 import styles from "../styles/recordPage.module.css";
@@ -16,10 +15,6 @@ export const SideBarComponent : React.FC<Props> = ({ transactionType, setTransac
     <div className={styles.sidebar}>
       <h2>Records</h2>
       <AddTransactionModal/>
-      <input
-        style={{ width: "20vw", height: "32px", margin: "20px 0 0 0" }}
-        placeholder="Search"
-      />
       <div className={styles.typesContainer}>
         <p className={styles.type}>Type</p>
         <div style={{ paddingLeft: "8px", fontWeight: "300" }}>
@@ -51,7 +46,6 @@ export const SideBarComponent : React.FC<Props> = ({ transactionType, setTransac
       <div className={styles.categoryContainer}>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <p className={styles.type}>Category</p>
-          <p style={{ color: "rgba(31, 41, 55, 0.2)" }}>Clear</p>
         </div>
         <div style={{ padding: "7px 0 7px 12px", fontWeight: "300" }}>
           {categoryData.map((array) => (
@@ -70,10 +64,6 @@ export const SideBarComponent : React.FC<Props> = ({ transactionType, setTransac
               <RightArrow />
             </div>
           ))}
-          <div style={{ display: "flex", gap: "10px", padding: "7px 0" }}>
-            <AddIcon />
-            Add Category
-          </div>
         </div>
       </div>
     </div>

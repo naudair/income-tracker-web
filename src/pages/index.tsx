@@ -8,7 +8,7 @@ export default function Home() {
   useEffect(() => {
     const isUserLoggedIn = () => {
       const isUser = localStorage.getItem("user");
-      if (!isUser) router.replace("/login");
+      if (!isUser) router.replace("/");
     };
     isUserLoggedIn();
   }, [router]);

@@ -6,14 +6,12 @@ export const CartDetail = ({
   type,
   desc,
   icon,
-  status,
   transaction,
 }: {
   title: string;
   type: string;
   desc: string;
   icon: ReactNode;
-  status: string;
   transaction: Transaction[];
 }) => {
   let incomeAmount = 0;
@@ -37,9 +35,8 @@ export const CartDetail = ({
     <div className="incomeExpense">
       <div className="cart-title">{title}</div>
       <div className="cart-amount">{renderTotalAmount(type)}</div>
-      <div className="desc">{desc}</div>
       <div className="cart-status">
-        {icon} {status}
+        {icon} {desc}
       </div>
     </div>
   );

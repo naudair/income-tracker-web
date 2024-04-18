@@ -59,15 +59,13 @@ export default function Index() {
             type="Income"
             desc="Your Income Amount"
             icon={upIcon()}
-            status="32% from last month"
           />
           <CartDetail
             transaction={transaction}
             title="Total Expense"
             type="Expense"
-            desc=" Your Expence Amount"
+            desc="Your Expence Amount"
             icon={downIcon()}
-            status="32% from last month"
           />
         </div>
         <div style={{ display: "flex", justifyContent: "space-between" }}>

@@ -38,8 +38,10 @@ export const currencyData = [
 ];
 
 export const categoryData = [
-  "Food & Drinks",
+  "Food",
   "Shopping",
+  "Bills",
+  "Clothing",
   "Housing",
   "Transportation",
   "Vehicle",
@@ -47,8 +49,7 @@ export const categoryData = [
   "Communication, PC",
   "Financial expenses",
   "Investments",
-  "Income",
-  "Others",
+  "Lending",
 ];
 
 export const colors = [
@@ -67,7 +68,7 @@ export const colors = [
   `#84CC16`,
   `#FF4545`,
 ];
- export const labels = [
+export const labels = [
   "January",
   "February",
   "March",

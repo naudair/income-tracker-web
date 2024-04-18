@@ -135,18 +135,11 @@ button {
 .cart-amount {
   font-size: 36px;
   font-weight: 600;
-  padding: 15px 24px;
-}
-.desc {
-  font-size: 18px;
-  font-weight: 400;
-  padding: 0 24px;
-  line-height: 0;
-  color: rgba(100, 116, 139, 1);
+  padding: 25px 24px;
 }
 .cart-status {
   display: flex;
-  height: 60px;
+  height: 20px;
   align-items: flex-end;
   font-size: 20px;
   padding-left: 24px;
