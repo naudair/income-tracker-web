@@ -72,6 +72,7 @@ export const ListItem = ({ transaction }: { transaction: Transaction }) => {
           }}
         >
           {icons[transaction.category]}
+
         </div>
         <div>
           {transaction.category}

@@ -44,7 +44,7 @@ export default function Index() {
       <Head />
       <div
         style={{
-          padding: "2.5vh 7vw",
+          padding: "2.5vh 15vw",
           display: "flex",
           flexDirection: "column",
           gap: "2vh",
@@ -64,7 +64,7 @@ export default function Index() {
             transaction={transaction}
             title="Total Expense"
             type="Expense"
-            desc="Your Expence Amount"
+            desc="Your Expense Amount"
             icon={downIcon()}
           />
         </div>

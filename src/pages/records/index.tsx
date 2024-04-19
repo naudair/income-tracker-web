@@ -1,5 +1,5 @@
 import Head from "../../components/headComponent";
-import { SideBarComponent } from "../../components/SideBarComponent";
+import { SideBarComponent } from "../../components/sideBarComponent";
 import { Transaction } from "../../components/transactionComponent";
 import styles from "../../styles/recordPage.module.css";
 import axios from "axios";
@@ -70,9 +70,9 @@ export default function RecordPage() {
         <div
           style={{
             display: "flex",
-            width: "85%",
+            width: "70%",
             paddingTop: "20px",
-            gap: "20px",
+            gap: "4vw",
           }}
         >
           <SideBarComponent

@@ -2,7 +2,6 @@ import { DoneIcon } from "../../components/images/doneIcon";
 import { GeldIcon } from "../../components/images/geldicon";
 import Stepper3 from "../../components/stepper3component";
 import { useRouter } from "next/router";
-// import { HorizontalNonLinearStepper }
 
 export default function SignupThird() {
   const router = useRouter();
@@ -24,14 +23,14 @@ export default function SignupThird() {
           Good Job!
         </p>
         <h4 className="final-text">
-          Your very first account has been created. Now continue to dashboard
+          Your very first account has been created. Now continue to login
           and start tracking
         </h4>
         <button
           style={{ width: "390px" }}
           onClick={() => router.push("/login")}
         >
-          Go to Dashboard
+          Go to Login
         </button>
       </div>
     </div>

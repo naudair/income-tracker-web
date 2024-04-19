@@ -1,5 +1,5 @@
-import { RightArrow } from "../components/images/rightArrow";
-import { SeeIcon } from "../components/images/seeIcon";
+import { RightArrow } from "./images/rightArrow";
+import { SeeIcon } from "./images/seeIcon";
 import styles from "../styles/recordPage.module.css";
 import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import { categoryData } from "../utils/data";

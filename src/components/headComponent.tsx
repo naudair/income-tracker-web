@@ -5,6 +5,17 @@ import AddTransactionModal from "./addTransactionModal";
 import { BackIcon } from "./images/backIocn";
 export default function Head() {
   const router = useRouter();
+  function deleteLocalStorageData(): void {
+    // Check if local storage is supported by the browser
+    if (typeof(Storage) !== "undefined") {
+        // Remove the desired item from local storage
+        localStorage.removeItem( "user"); // Replace "key" with the key of the item you want to delete
+        console.log("Data deleted from local storage.");
+        router.push("/")
+    } else {
+        console.log("Local storage is not supported by this browser.");
+    }
+}
   return (
     <div className="navbar">
       <div
@@ -38,7 +49,7 @@ export default function Head() {
         <div>
           <AddTransactionModal />
         </div>
-        <div onClick={() => router.push("/")}>
+        <div onClick={deleteLocalStorageData}>
           <BackIcon />
         </div>
       </div>

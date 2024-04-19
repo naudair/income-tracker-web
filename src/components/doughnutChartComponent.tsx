@@ -18,7 +18,7 @@ export const DoughnutChart: FC<Props> = ({ transaction, label }) => {
   const dataSet = {
     labels: categories,
     datasets: [
-      {
+      {  
         data: amounts,
         backgroundColor: colors,
       },
