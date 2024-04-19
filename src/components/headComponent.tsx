@@ -5,11 +5,10 @@ import AddTransactionModal from "./addTransactionModal";
 import { BackIcon } from "./images/backIocn";
 export default function Head() {
   const router = useRouter();
+  
   function deleteLocalStorageData(): void {
-    // Check if local storage is supported by the browser
     if (typeof(Storage) !== "undefined") {
-        // Remove the desired item from local storage
-        localStorage.removeItem( "user"); // Replace "key" with the key of the item you want to delete
+        localStorage.removeItem( "user");
         console.log("Data deleted from local storage.");
         router.push("/")
     } else {
